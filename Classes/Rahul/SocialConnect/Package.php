@@ -24,7 +24,7 @@ class Package extends BasePackage {
 	 */
 	public function boot(\TYPO3\Flow\Core\Bootstrap $bootstrap) {
 		$dispatcher = $bootstrap->getSignalSlotDispatcher();
-		 $dispatcher->connect(  'TYPO3\Neos\Service\PublishingService', 'NodePublished','rahul\socialConnect\Service\Notification', 'sendSocialConnect');
+		 $dispatcher->connect(  'TYPO3\Neos\Service\PublishingService', 'NodePublished','Rahul\SocialConnect\Service\Notification', 'sendSocialConnect');
 	}
 	
 
