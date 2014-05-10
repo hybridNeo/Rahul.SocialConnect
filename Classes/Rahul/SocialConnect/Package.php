@@ -11,6 +11,8 @@ namespace Rahul\SocialConnect;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
+use TYPO3\Flow\Core\Booting\Step;
+use TYPO3\Flow\Core\Bootstrap;
 use TYPO3\Flow\Package\Package as BasePackage;
 
 /**
@@ -24,8 +26,16 @@ class Package extends BasePackage {
 	 */
 	public function boot(\TYPO3\Flow\Core\Bootstrap $bootstrap) {
 		$dispatcher = $bootstrap->getSignalSlotDispatcher();
-		 $dispatcher->connect(  'TYPO3\Neos\Service\PublishingService', 'NodePublished','Rahul\SocialConnect\Service\Notification', 'sendSocialConnect');
-	}
-	
+		$package = $this;
+		$dispatcher->connect('TYPO3\Flow\Core\Booting\Sequence', 'afterInvokeStep', function(Step $step) use ($package, $bootstrap) {
+		if ($step->getIdentifier() === 'typo3.flow:persistence') {
+		$package->registerIndexingSlots($bootstrap);
+					}
+				 });
+		  }
+public function registerIndexingSlots(Bootstrap $bootstrap) {
+	 $bootstrap->getSignalSlotDispatcher()->connect(  'TYPO3\Neos\Service\PublishingService', 'nodePublished','Rahul\SocialConnect\Service\Notification', 'sendSocialConnect',FALSE);
 
+  }
+		
 }
