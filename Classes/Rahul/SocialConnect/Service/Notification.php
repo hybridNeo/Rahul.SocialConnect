@@ -16,12 +16,16 @@
 * @param mixed $targetWorkspace In case this is triggered during publishing, a Workspace will be passed in
 * @return void
 */
-   public function sendSocialConnect(NodeInterface $node,$targetWorkspace = NULL){
-      $content = "Nanananan";
+   public function sendSocialConnect(Node $node,$targetWorkspace = NULL){
+    
+      $contentData =$node->getNodeData();
+      $content = $contentData->getFullLabel();
+     /*
       $fp = fopen($_SERVER['DOCUMENT_ROOT'] . "/myText.txt","wb");
       echo $content;
       fwrite($fp,$content);
       fclose($fp);
+      */
     }
   }
 ?>

@@ -34,7 +34,7 @@ class Package extends BasePackage {
 				 });
 		  }
 public function registerIndexingSlots(Bootstrap $bootstrap) {
-	 $bootstrap->getSignalSlotDispatcher()->connect(  'TYPO3\Neos\Service\PublishingService', 'nodePublished','Rahul\SocialConnect\Service\Notification', 'sendSocialConnect',FALSE);
+	 $bootstrap->getSignalSlotDispatcher()->connect(  'TYPO3\Neos\Service\PublishingService', 'nodePublished','Rahul\SocialConnect\Service\Notification', 'sendSocialConnect');
 
   }
 		
