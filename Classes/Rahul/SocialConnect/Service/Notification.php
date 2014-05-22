@@ -13,14 +13,7 @@
  */	
    
   class Notification{
-  	
-  	
-  	
-  	
-  	
-  	
-  	
-  	
+
   	/**
     * Receive Published Nodes
     *
@@ -30,10 +23,15 @@
     */
     
    public function sendSocialConnect(Node $node,$targetWorkspace = NULL){  
-      $new = new Rahul\SocialConnect\Lib\Facebook($config);
+     // $new = new Rahul\SocialConnect\Lib\Facebook($config);
+      $config = array(
+      'appId' => '300704070093400',
+      'secret' => '392d3e6cf62daa323b1303904bec0037',
+      'fileUpload' => false, // optional
+      'allowSignedRequest' => false, // optional, but should be set to false for non-canvas apps
+      );
       $contentData =$node->getNodeData();
       $content = $contentData->getFullLabel();
-     
   }
 }
 
