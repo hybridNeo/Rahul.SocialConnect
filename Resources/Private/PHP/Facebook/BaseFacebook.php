@@ -1,6 +1,4 @@
 <?php
-
-namespace Rahul\SocialConnect\Facebook
 /**
  * Copyright 2011 Facebook, Inc.
  *
@@ -16,7 +14,8 @@ namespace Rahul\SocialConnect\Facebook
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-
+ namespace Rahul\SocialConnect\Lib;
+require_once "Exception.php";
 if (!function_exists('curl_init')) {
   throw new Exception('Facebook needs the CURL PHP extension.');
 }
