@@ -14,8 +14,8 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-namespace Rahul\SocialConnect\Lib;
-require_once "BaseFacebook.php";
+
+require_once "base_facebook.php";
 
 /**
  * Extends the BaseFacebook class with the intent of using

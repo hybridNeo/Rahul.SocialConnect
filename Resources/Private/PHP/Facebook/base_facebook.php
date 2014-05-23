@@ -14,8 +14,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
- namespace Rahul\SocialConnect\Lib;
-require_once "Exception.php";
+
 if (!function_exists('curl_init')) {
   throw new Exception('Facebook needs the CURL PHP extension.');
 }
@@ -915,11 +914,11 @@ abstract class BaseFacebook
     if (!isset($params['access_token'])) {
       $params['access_token'] = $this->getAccessToken();
     }
-/*
+
     if (isset($params['access_token']) && !isset($params['appsecret_proof'])) {
       $params['appsecret_proof'] = $this->getAppSecretProof($params['access_token']);
     }
-*/
+
     // json_encode all params values that are not strings
     foreach ($params as $key => $value) {
       if (!is_string($value) && !($value instanceof CURLFile)) {

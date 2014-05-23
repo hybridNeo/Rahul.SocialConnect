@@ -25,9 +25,9 @@ class Package extends BasePackage {
 	 * @return void
 	 */
 	public function boot(\TYPO3\Flow\Core\Bootstrap $bootstrap) {
-		require_once($this->packagePath . 'Resources/Private/PHP/Facebook/Facebook.php');
+		require_once($this->packagePath . 'Resources/Private/PHP/Facebook/facebook.php');
 		$dispatcher = $bootstrap->getSignalSlotDispatcher();
-		 $dispatcher->connect(
+		$dispatcher->connect(
                 'TYPO3\Neos\Service\PublishingService', 'nodePublished',
                 'Rahul\SocialConnect\Service\Notification', 'sendSocialConnect'
         );
