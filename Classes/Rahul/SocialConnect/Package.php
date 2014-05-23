@@ -25,8 +25,6 @@ class Package extends BasePackage {
 	 * @return void
 	 */
 	public function boot(\TYPO3\Flow\Core\Bootstrap $bootstrap) {
-		
-		require_once($this->packagePath . 'Resources/Private/PHP/Facebook/Exception.php');
 		require_once($this->packagePath . 'Resources/Private/PHP/Facebook/Facebook.php');
 		$dispatcher = $bootstrap->getSignalSlotDispatcher();
 		 $dispatcher->connect(
