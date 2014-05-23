@@ -14,7 +14,8 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-
+namespace Rahul\SocialConnect\Fbook;
+require_once "Exception.php";
 if (!function_exists('curl_init')) {
   throw new Exception('Facebook needs the CURL PHP extension.');
 }

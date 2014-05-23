@@ -14,7 +14,7 @@
  * License for the specific language governing permissions and limitations
  * under the License.
  */
-
+namespace Rahul\SocialConnect\Fbook;
 require_once "base_facebook.php";
 
 /**

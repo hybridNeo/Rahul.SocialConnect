@@ -1,6 +1,5 @@
 <?php
   namespace Rahul\SocialConnect\Service;
-  
   use TYPO3\Flow\Annotations as Flow;
   use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
   use TYPO3\TYPO3CR\Domain\Model\Node;
@@ -31,7 +30,7 @@
       );
       $contentData =$node->getNodeData();
       $content = $contentData->getFullLabel();
-      $fb = new Facebook($config);
+      $fb = new Rahul\SocialConnect\Fbook\Facebook($config);
       $fp = fopen($_SERVER['DOCUMENT_ROOT'] . "/myxt.txt","wb");
       echo $content;
       fwrite($fp,$content);
