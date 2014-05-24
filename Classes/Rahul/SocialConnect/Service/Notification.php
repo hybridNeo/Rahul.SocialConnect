@@ -13,7 +13,7 @@
    
   class Notification{
 
-        protected $fb;
+     protected $fb;
   	/**
     * Receive Published Nodes
     *
@@ -23,15 +23,11 @@
     */
     
    public function sendSocialConnect(Node $node,$targetWorkspace = NULL){
-      $config = array(
-      'appId' => '300704070093400',
-      'secret' => '392d3e6cf62daa323b1303904bec0037',
-      'fileUpload' => false, // optional
-      'allowSignedRequest' => false, // optional, but should be set to false for non-canvas apps
-      );
+    
       $contentData =$node->getNodeData();
       $content = $contentData->getFullLabel();
-      //$fb = $objectManager->get('Rahul\SocialConnect\Fb\Facebook($config)');
+      $fb = new Rahul\SocialConnect\FacebookFactory();
+      //$fbook = $fb->create();
       $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
       echo $content;
       fwrite($fp,$content);

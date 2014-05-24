@@ -1,0 +1,4 @@
+Rahul:
+ SocialConnect:
+   secret: 'APP_SECRET'
+   appid: 'APP_ID'
