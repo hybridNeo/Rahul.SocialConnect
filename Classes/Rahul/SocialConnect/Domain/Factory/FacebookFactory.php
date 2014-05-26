@@ -17,6 +17,21 @@ use TYPO3\Flow\Annotations as Flow;
  * @Flow\Scope("prototype")
  */
 class FacebookFactory{
+
+	/**
+	* @var array
+	*/
+	public $config;
+
+	public function __construct(){
+		 $config = array(
+      	 'appId' => '300704070093400',
+      	 'secret' => '392d3e6cf62daa323b1303904bec0037',
+      	 'fileUpload' => false, // optional
+     	 'allowSignedRequest' => false, // optional, but should be set to false for non-canvas apps
+  			);
+	}
+
 	/**
 	 * Factory method which creates a Facebook instance.
 	 *
@@ -25,13 +40,8 @@ class FacebookFactory{
 	 * @api
 	 */
 	public function create(){
-	 	$config = array(
-     	 'appId' => $this->settings['appid'],
-      	 'secret' => $this->settings['secret'],
-      	 'fileUpload' => false, // optional
-      	 'allowSignedRequest' => false, // optional, but should be set to false for non-canvas apps
-      	);
-		$object = new \Rahul\SocialConnect\Fb\Facebook($config);
+      	$object =null;
+		//$object = new \Rahul\SocialConnect\Fb\Facebook($config);
 		return $object;
 	}
 }
