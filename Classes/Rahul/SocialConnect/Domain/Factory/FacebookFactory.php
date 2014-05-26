@@ -14,7 +14,7 @@ use TYPO3\Flow\Annotations as Flow;
 /**
  * Facebook factory for Facebook package
  *
- * @Flow\Scope("singleton")
+ * @Flow\Scope("prototype")
  */
 class FacebookFactory{
 	/**
@@ -35,5 +35,16 @@ class FacebookFactory{
 		return $object;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
 
 ?>

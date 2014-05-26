@@ -28,7 +28,7 @@ class Package extends BasePackage {
 		$dispatcher = $bootstrap->getSignalSlotDispatcher();
 		$dispatcher->connect(
                 'TYPO3\Neos\Service\PublishingService', 'nodePublished',
-                'Rahul\SocialConnect\Service\Notification', 'sendSocialConnect'
+                'Rahul\SocialConnect\Service\Notification', 'sendSocialConnect',FALSE
         );
 	}
 }
