@@ -28,13 +28,6 @@ class Notification{
   public $fb;
 
   /**
-    * Constructor.
-    */
-    public function __construct() {
-       $this->fb = new \Rahul\SocialConnect\Domain\Factory\FacebookFactory();
-      }
-
-  /**
     * Receive Published Nodes
     *
     * @param NodeInterface $node
@@ -44,6 +37,7 @@ class Notification{
   public function sendSocialConnect(Node $node,$targetWorkspace = NULL){
       $contentData =$node->getNodeData();
       $content = $contentData->getFullLabel();
+      $fb = new \Rahul\SocialConnect\Domain\Factory\FacebookFactory();
       //$fbook = $fb->create();
       $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
       echo $content;
