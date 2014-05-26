@@ -1,5 +1,5 @@
 <?php
-namespace Rahul\SocialConnect;
+namespace Rahul\SocialConnect\Domain\Factory;
 /*                                                                        *
  * This script belongs to the TYPO3 Flow package "Rahul.SocialConnect".   *
  *                                                                        *
@@ -35,16 +35,5 @@ class FacebookFactory{
 		return $object;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
 
 ?>
