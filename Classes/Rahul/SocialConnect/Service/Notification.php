@@ -23,6 +23,7 @@ class Notification{
 
   /**
   *@var Rahul\SocialConnect\Domain\Factory\FacebookFactory
+  *@Flow\Inject
   */
   public $fb;
   /**
