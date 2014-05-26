@@ -15,17 +15,18 @@
   use TYPO3\CMS\Core\Messaging\FlashMessage;
     
 /**
-* Facebook slot class
-*
-* @Flow\Scope("singleton")
-*/
+ * Facebook slot class
+ *
+ * @Flow\Scope("singleton")
+ */
 class Notification{  
 
   /**
-  * @var Rahul\SocialConnect\Domain\Factory\FacebookFactory
-  * @Flow\Inject
-  */
+   * @var Rahul\SocialConnect\Domain\Factory\FacebookFactory
+   * @Flow\Inject
+   */
   public $fb;
+
   /**
     * Receive Published Nodes
     *
