@@ -24,24 +24,23 @@ class FacebookFactory{
 	public $config;
 
 	public function __construct(){
-		 $config = array(
-      	 'appId' => '300704070093400',
-      	 'secret' => '392d3e6cf62daa323b1303904bec0037',
-      	 'fileUpload' => false, // optional
-     	 'allowSignedRequest' => false, // optional, but should be set to false for non-canvas apps
-  			);
+		
 	}
 
 	/**
 	 * Factory method which creates a Facebook instance.
 	 *
 	 * Specify AppID and secret along with other data in configuration.yaml files under Configuration 
-	 * @return \Rahul\SocialConnect\Fb\Facebook
+	 * @return \Facebook\PHP\Facebook
 	 * @api
 	 */
 	public function create(){
-      	$object =null;
-		//$object = new \Rahul\SocialConnect\Fb\Facebook($config);
+		 $config = array(
+      	 'appId' => '300704070093400',
+      	 'secret' => '392d3e6cf62daa323b1303904bec0037',
+      	 'fileUpload' => false, 
+     	 'allowSignedRequest' => false, );
+		$object = new \Facebook\PHP\Facebook($config);
 		return $object;
 	}
 }
