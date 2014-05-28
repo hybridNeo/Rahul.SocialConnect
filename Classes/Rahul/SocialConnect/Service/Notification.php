@@ -22,7 +22,7 @@
 class Notification{  
 
   /**
-   * @var Rahul\SocialConnect\Domain\Factory\FacebookFactory
+   * @var Rahul\SocialConnect\Domain\Helpers\FacebookHelper
    * @Flow\Inject
    */
   public $fb;
@@ -37,12 +37,13 @@ class Notification{
   public function sendSocialConnect(Node $node,$targetWorkspace = NULL){
       $contentData =$node->getNodeData();
       $content = $contentData->getFullLabel();
-      $fb = new \Rahul\SocialConnect\Domain\Factory\FacebookFactory();
-      $fbook = $fb->create();
+      $fb = new \Rahul\SocialConnect\Domain\Helpers\FacebookHelper();
+      $fb->post($content);
       $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
       echo $content;
       fwrite($fp,$content);
       fclose($fp);
+      
   }
 
 }

@@ -1,4 +1,4 @@
 Rahul:
- SocialConnect:
-   secret: 'APP_SECRET'
-   appid: 'APP_ID'
+  SocialConnect:
+    secret: 'APP_SECRET'
+    appid: 'APP_ID'
