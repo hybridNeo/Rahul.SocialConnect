@@ -46,7 +46,16 @@ class FacebookHelper{
 	 */
 	public function post($content){
      	FacebookSession::setDefaultApplication( $this->settings['facebook']['appid'],$this->settings['facebook']['secret'] );
-     	$session = new FacebookSession($this->settings['facebook']['token']);
+     	$session = new FacebookSession($this->settings['facebook']['token']);	
+     	try {
+				$session->validate();
+			} catch (FacebookRequestException $ex) {
+			  // Session not valid, Graph API returned an exception with the reason.
+			    echo $ex->getMessage();
+			} catch (\Exception $ex) {
+			  // Graph API returned info, but it may mismatch the current app or have expired.
+				echo $ex->getMessage();
+			}		
 		if($session) {
 			  try {
 				    $response = (new FacebookRequest(
