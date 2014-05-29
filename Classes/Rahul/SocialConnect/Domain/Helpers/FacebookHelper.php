@@ -22,7 +22,20 @@ use Facebook\FacebookRequestException;
  * @Flow\Scope("prototype")
  */
 class FacebookHelper{
-
+	/**
+ 	 * @var array
+ 	 */	
+	protected $settings;
+ 
+	/**
+ 	 * Inject settings
+ 	 *
+ 	 * @param array $settings
+ 	 * @return void
+ 	 */
+	public function injectSettings(array $settings) {
+	    $this->settings = $settings;
+	}
 
 	/**
 	 * Helper method to post to Facebook.
@@ -32,13 +45,13 @@ class FacebookHelper{
 	 * @api
 	 */
 	public function post($content){
-     	FacebookSession::setDefaultApplication( '300704070093400','392d3e6cf62daa323b1303904bec0037' );
-     	$session = new FacebookSession('CAACEdEose0cBAHjNOSAn9dqV30hjldE3IasW9YaD68sEtGWHaZBahbPculcZBKTZCPnk8j8ZBxJu8LNK3wNaYA1ARXxNCxpcrmpeNRBD1874A4ba9X4kpaVraEZC1cunuq4oJgntt4BsVTcHaD5tPiHL2JnXppiv791ktBFR6HGg7oFB5fttImtvZBEZBysMUMZD');
+     	FacebookSession::setDefaultApplication( $this->settings['facebook']['appid'],$this->settings['facebook']['secret'] );
+     	$session = new FacebookSession($this->settings['facebook']['token']);
 		if($session) {
 			  try {
 				    $response = (new FacebookRequest(
-			    	$session, 'POST', '/me/feed', array(
-			        'link' => 'www.example.com',
+			    	$session, 'POST', '/'.$this->settings['facebook']['user'].'/feed', array(
+			        'link' => $this->settings['facebook']['link'],
 			        'message' => $content
 			      )
 			    ))->execute()->getGraphObject();

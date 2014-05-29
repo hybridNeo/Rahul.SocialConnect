@@ -1,4 +1,9 @@
 Rahul:
   SocialConnect:
-    secret: 'APP_SECRET'
-    appid: 'APP_ID'
+    facebook:
+      appid: '300704070093400' #Enter Your Facebook App ID.visit deveoper.facebook.com
+      secret: '392d3e6cf62daa323b1303904bec0037' #app secret
+      user: 'me' # the profile / page you want to post on
+      link: 'www.example.com' #The link to your website
+      ##Get the access token at https://developers.facebook.com/tools/explorer/?method=GET&path=me%3Ffields%3Did%2Cname
+      token: 'CAACEdEose0cBAN0KWnZAOUCEKPj7rsZCWfRg1ARUQkvAqVygrw4PLaqOCpTnahi7D5P1VUzdxmQ5h7EQKH5qtsZB1906Eqgf4Fw3ZBJT5Ew1m1pKsd8jvF5ZBlGrbhZBraHgAf1ipraC2B7dAkLZBfjgdDpVElriZA2hpttnZAxT6N8YUdjZCzGFRhQI078aQpKZCQZD'
