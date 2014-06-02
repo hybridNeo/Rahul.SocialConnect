@@ -6,8 +6,7 @@
         "vendor-dir": "Resources/Private/PHP",
         "bin-dir": "bin"
     },
-    "require": {
-	"facebook/php-sdk": "dev-master"
+    "require-dev": {
     },
     
    
