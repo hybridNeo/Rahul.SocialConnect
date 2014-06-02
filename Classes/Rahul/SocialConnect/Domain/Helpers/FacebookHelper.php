@@ -47,6 +47,7 @@ class FacebookHelper{
 	public function post($content){
      	FacebookSession::setDefaultApplication( $this->settings['facebook']['appid'],$this->settings['facebook']['secret'] );
      	$session = new FacebookSession($this->settings['facebook']['token']);	
+     	
      	try {
 				$session->validate();
 			} catch (FacebookRequestException $ex) {
@@ -61,6 +62,10 @@ class FacebookHelper{
 				    $response = (new FacebookRequest(
 			    	$session, 'POST', '/'.$this->settings['facebook']['user'].'/feed', array(
 			        'link' => $this->settings['facebook']['link'],
+			        'picture' => $this->settings['facebook']['image'],
+			        'description' => $this->settings['facebook']['desc'],
+			        'name' => $this->settings['facebook']['name'],
+			        'caption' => $this->settings['facebook']['caption'],
 			        'message' => $content
 			      )
 			    ))->execute()->getGraphObject();
