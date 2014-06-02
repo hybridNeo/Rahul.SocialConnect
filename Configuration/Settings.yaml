@@ -1,9 +1,13 @@
 Rahul:
   SocialConnect:
     facebook:
-      appid: '' #Enter Your Facebook App ID.visit deveoper.facebook.com
-      secret: '' #app secret
-      user: 'me' # the profile / page you want to post on
-      link: '' #The link to your website
+      appid: 'XXXXXXXXXXX' #Enter Your Facebook App ID.visit deveoper.facebook.com
+      secret: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXX' #app secret
+      user: 'XXXXXXXXXXX' # the profile / page you want to post on
+      link: 'www.example.com' #The link to your website
+      caption: 'some caption' #caption for the link
+      name: 'some name' #Title for the post
+      desc: 'some desc' #Description for the post
+      image: 'XXXXXXXXXXX' #URL to the image
       ##Get the access token at https://developers.facebook.com/tools/explorer/?method=GET&path=me%3Ffields%3Did%2Cname
-      token: ''
+      token: 'XXXXXXXXXXXXXXXXXX'
