@@ -22,11 +22,45 @@ use Facebook\FacebookRequestException;
  * @Flow\Scope("prototype")
  */
 class FacebookHelper{
+	
 	/**
  	 * @var array
  	 */	
 	protected $settings;
- 
+
+	/**
+ 	 * @var string 
+ 	 */	
+	protected $link;
+ 	
+ 	/**
+ 	 * @var string 
+ 	 */	
+	protected $caption;
+
+	/**
+ 	 * @var string 
+ 	 */	
+	protected $name;
+
+	/**
+ 	 * @var string 
+ 	 */	
+	protected $image;
+
+	/**
+ 	 * @var string 
+ 	 */	
+	protected $description;
+
+	public function intializeParam(){
+		$link = $this->settings['facebook']['link'];
+		$name = $this->settings['facebook']['name'];
+		$caption = $this->settings['facebook']['caption'];
+		$description = $this->settings['facebook']['desc'];
+	}
+
+
 	/**
  	 * Inject settings
  	 *
@@ -47,7 +81,7 @@ class FacebookHelper{
 	public function post($content){
      	FacebookSession::setDefaultApplication( $this->settings['facebook']['appid'],$this->settings['facebook']['secret'] );
      	$session = new FacebookSession($this->settings['facebook']['token']);	
-     	
+     	$this->intializeParam();
      	try {
 				$session->validate();
 			} catch (FacebookRequestException $ex) {
