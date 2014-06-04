@@ -53,14 +53,8 @@ class FacebookHelper{
  	 */	
 	protected $description;
 
-	public function intializeParam(){
-		$link = $this->settings['facebook']['link'];
-		$name = $this->settings['facebook']['name'];
-		$caption = $this->settings['facebook']['caption'];
-		$description = $this->settings['facebook']['desc'];
-	}
 
-
+	
 	/**
  	 * Inject settings
  	 *
@@ -72,6 +66,18 @@ class FacebookHelper{
 	}
 
 	/**
+	 * Function to initialize defaults from Settings.yaml
+	 * @return void
+	 */
+	public function initDefault(){
+		$this->caption = $this->settings['facebook']['caption'];
+		$this->image = $this->settings['facebook']['image'];
+		$this->description = $this->settings['facebook']['desc'];
+		$this->name = $this->settings['facebook']['name'];
+		$this->link = $this->settings['facebook']['link'];
+	}
+
+	/**
 	 * Helper method to post to Facebook.
 	 * Specify AppID and secret along with other data in configuration.yaml files under Configuration 
 	 * @param string 
@@ -79,9 +85,9 @@ class FacebookHelper{
 	 * @api
 	 */
 	public function post($content){
+		$this->initDefault();// all the post parameters are set to the default ones mentioned in Settings.yaml
      	FacebookSession::setDefaultApplication( $this->settings['facebook']['appid'],$this->settings['facebook']['secret'] );
      	$session = new FacebookSession($this->settings['facebook']['token']);	
-     	$this->intializeParam();
      	try {
 				$session->validate();
 			} catch (FacebookRequestException $ex) {
@@ -95,12 +101,12 @@ class FacebookHelper{
 			  try {
 				    $response = (new FacebookRequest(
 			    	$session, 'POST', '/'.$this->settings['facebook']['user'].'/feed', array(
-			        'link' => $this->settings['facebook']['link'],
-			        'picture' => $this->settings['facebook']['image'],
-			        'description' => $this->settings['facebook']['desc'],
-			        'name' => $this->settings['facebook']['name'],
-			        'caption' => $this->settings['facebook']['caption'],
-			        'message' => $content
+			        'link' => $this->link,
+					'picture' => $this->image,
+					'description' => $this->description,
+					'name' => $this->name,
+					'caption' => $this->caption,
+					'message' => $content
 			      )
 			    ))->execute()->getGraphObject();
 			    echo "Posted with id: " . $response->getProperty('id');
