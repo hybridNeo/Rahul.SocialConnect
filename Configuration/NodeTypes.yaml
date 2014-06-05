@@ -1,0 +1,28 @@
+'TYPO3.Neos.NodeTypes:Headline':
+  ui:
+    inspector:
+      groups:
+        advanced:
+          label: 'Social Connect'
+          position: 2
+  properties:
+    articleType:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Channel'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'Select Channel'
+            values:
+              '':
+                label: ''
+              announcement:
+                label: 'Facebook'
+              casestudy:
+                label: 'Twitter'
+              event:
+                label: 'Google Plus'
