@@ -1,12 +1,14 @@
   {
     "name": "rahul/socialconnect",
     "type": "typo3-flow-package",
-    "description": "Add description here",
-     "config": {
-        "vendor-dir": "Resources/Private/PHP",
-        "bin-dir": "bin"
+    "description": "A Social media multi channel connector for TYPO3 Neos",
+    "license": "GPL-3.0+",
+    "require": {
+        "typo3/neos": "1.1.0-beta2",
+        "typo3/flow": "dev-master"
     },
     "require-dev": {
+        "facebook/php-sdk-v4" : "4.0.*"
     },
     
    
