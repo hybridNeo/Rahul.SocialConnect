@@ -1,13 +1,13 @@
 Rahul:
   SocialConnect:
     facebook:
-      appid: '300704070093400' #Enter Your Facebook App ID.visit deveoper.facebook.com
-      secret: '392d3e6cf62daa323b1303904bec0037' #app secret
+      appid: 'XXXXXXXXXXXXX' #Enter Your Facebook App ID.visit deveoper.facebook.com
+      secret: 'XXXXXXXXXXXXXX' #app secret
       user: '222584177830048' # the profile / page you want to post on
       link: 'www.example.com' #The link to your website
       caption: 'some caption' #caption for the link
       name: 'some name' #Title for the post
       desc: 'some desc' #Description for the post
-      image: 'http://hdwallpapersbase.com/wp-content/uploads/2013/06/Guns_n___Roses_Wallpaper_by_Spilas.jpg' #URL to the image
+      image: 'XXXXXXXXXXXX' #URL to the image
       ##Get the access token at https://developers.facebook.com/tools/explorer/?method=GET&path=me%3Ffields%3Did%2Cname
-      token: 'CAAERfR9HylgBAN7HPjKpHQViTO0ZAvit5KzR87v0biVNlPenw0e7ixVkgXxK0FAdWQT4idaTy5PFbjYXxOH3GVo7M6c3xikzZCm49DctyBUD240YOb8OpJuWRuQcSb3nFOuodMv6aIGchgnBLz9oPgYu4UQ7w3lFUJm4hNQBNATBwcwYYF'
+      token: 'XXXXXXXXXXXXXX'
