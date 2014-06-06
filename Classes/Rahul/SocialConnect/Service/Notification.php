@@ -37,8 +37,14 @@ class Notification{
   public function sendSocialConnect(Node $node,$targetWorkspace = NULL){
       $contentData =$node->getNodeData();
       $content = $contentData->getFullLabel();
-      $fb = new \Rahul\SocialConnect\Domain\Helpers\FacebookHelper();
-      $fb->post($content);
+      $channel = $node->getProperty('articleType');
+      $face = 'Facebook';
+      if($face == $channel)
+      {
+        $fb = new \Rahul\SocialConnect\Domain\Helpers\FacebookHelper();
+        $fb->post($content);
+      }
+      //ignore the following statements.just debug statements
       $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
       echo $content;
       fwrite($fp,$content);

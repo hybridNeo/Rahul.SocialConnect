@@ -20,9 +20,9 @@
             values:
               '':
                 label: ''
-              announcement:
+              Facebook:
                 label: 'Facebook'
-              casestudy:
+              Twitter:
                 label: 'Twitter'
-              event:
+              Google:
                 label: 'Google Plus'

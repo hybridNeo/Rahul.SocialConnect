@@ -78,6 +78,15 @@ class FacebookHelper{
 	}
 
 	/**
+	 * A function to ovveride the title of the link. it is usually set to default.You can change the default arguments in Settings.yaml
+	 * This function takes a complex Node and changes the link name to the text of the parent node if it has child nodes.
+	 * @return void
+	 */
+	public function overloadName(){
+		
+	}
+
+	/**
 	 * Helper method to post to Facebook.
 	 * Specify AppID and secret along with other data in configuration.yaml files under Configuration 
 	 * @param string 
@@ -109,7 +118,7 @@ class FacebookHelper{
 					'message' => $content
 			      )
 			    ))->execute()->getGraphObject();
-			    echo "Posted with id: " . $response->getProperty('id');
+			   		 echo "Posted with id: " . $response->getProperty('id');
 			   } catch(FacebookRequestException $e) {
 			   		 echo "Exception occured, code: " . $e->getCode();
 			   		 echo " with message: " . $e->getMessage();
@@ -118,6 +127,8 @@ class FacebookHelper{
 			}
 		
 	}
+
+
 
 }
 
