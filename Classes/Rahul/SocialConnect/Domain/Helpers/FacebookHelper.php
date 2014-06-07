@@ -89,12 +89,14 @@ class FacebookHelper{
 	/**
 	 * Helper method to post to Facebook.
 	 * Specify AppID and secret along with other data in configuration.yaml files under Configuration 
-	 * @param string 
+	 * @param NodeInterface $node 
 	 * @return void
 	 * @api
 	 */
-	public function post($content){
+	public function post($node){
 		$this->initDefault();// all the post parameters are set to the default ones mentioned in Settings.yaml
+		$contentData =$node->getNodeData();
+        $content = $contentData->getFullLabel();
      	FacebookSession::setDefaultApplication( $this->settings['facebook']['appid'],$this->settings['facebook']['secret'] );
      	$session = new FacebookSession($this->settings['facebook']['token']);	
      	try {

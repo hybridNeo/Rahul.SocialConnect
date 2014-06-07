@@ -42,7 +42,7 @@ class Notification{
       if($face == $channel)
       {
         $fb = new \Rahul\SocialConnect\Domain\Helpers\FacebookHelper();
-        $fb->post($content);
+        $fb->post($node);
       }
       //ignore the following statements.just debug statements
       $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
