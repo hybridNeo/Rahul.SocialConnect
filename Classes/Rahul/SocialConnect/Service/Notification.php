@@ -12,7 +12,7 @@
   use TYPO3\Flow\Annotations as Flow;
   use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
   use TYPO3\TYPO3CR\Domain\Model\Node;
-  use TYPO3\CMS\Core\Messaging\FlashMessage;
+  
     
 /**
  * Facebook slot class

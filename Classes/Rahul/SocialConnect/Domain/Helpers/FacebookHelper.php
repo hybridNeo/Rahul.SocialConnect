@@ -9,12 +9,14 @@ namespace Rahul\SocialConnect\Domain\Helpers;
  *                                                                        *
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
-use TYPO3\Flow\Annotations as Flow;
+
 use Facebook\FacebookSession;
 use Facebook\FacebookRequest;
 use Facebook\GraphObject;
 use Facebook\FacebookRequestException;
-		
+use TYPO3\Flow\Annotations as Flow;
+use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
+use TYPO3\TYPO3CR\Domain\Model\Node;
 
 /**
  * Facebook Helper for Facebook package
@@ -81,6 +83,7 @@ class FacebookHelper{
 	 * A function to ovveride the title of the link. it is usually set to default.You can change the default arguments in Settings.yaml
 	 * This function takes a complex Node and changes the link name to the text of the parent node if it has child nodes.
 	 * @return void
+	 * TODO
 	 */
 	public function overloadName(){
 		
@@ -133,16 +136,6 @@ class FacebookHelper{
 
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 ?>
