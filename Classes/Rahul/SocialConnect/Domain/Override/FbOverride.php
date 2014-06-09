@@ -15,7 +15,7 @@ use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
 
 /**
- * Default override for Facebook posting
+ * Default Override class for Facebook Post Parameters
  *
  * @Flow\Scope("prototype")
  */

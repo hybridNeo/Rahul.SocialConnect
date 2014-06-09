@@ -35,8 +35,6 @@ class Notification{
     * @return void
     */  
   public function sendSocialConnect(Node $node,$targetWorkspace = NULL){
-      $contentData =$node->getNodeData();
-      $content = $contentData->getFullLabel();
       $channel = $node->getProperty('articleType');
       $face = 'Facebook';
       if($face == $channel)
@@ -44,10 +42,14 @@ class Notification{
         $fb = new \Rahul\SocialConnect\Domain\Helpers\FacebookHelper();
         $fb->post($node);
       }
-      //ignore the following statements.just debug statements
+      //ignore the following statements.just debug trace
+      $extractor = new \Rahul\SocialConnect\Analyzer\NodeExtractor($node);
+      $check = $extractor->isSupported($node);
+      $contentData =$node->getNodeData();
+      $content = $contentData->getFullLabel();
       $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
       echo $content;
-      fwrite($fp,$content);
+      fwrite($fp,$check);
       fclose($fp);
       
   }

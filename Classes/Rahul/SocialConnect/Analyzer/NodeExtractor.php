@@ -59,5 +59,17 @@ class NodeExtractor{
 		return $this->nodeHeight;
 		
 	}
+
+	/**
+	 * Returns if the given Node is Supported by Social Connect
+	 * @param NodeInterface
+	 * @return boolean
+	 */
+	public function isSupported($node){
+		if($node->hasProperty('articleType'))
+			return true;
+		else
+			return false;
+	}
 }
 ?>
