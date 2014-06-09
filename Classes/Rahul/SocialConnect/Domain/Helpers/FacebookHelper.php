@@ -43,6 +43,11 @@ class FacebookHelper{
 	/**
  	 * @var string 
  	 */	
+	protected $content;
+
+	/**
+ 	 * @var string 
+ 	 */	
 	protected $name;
 
 	/**
@@ -72,11 +77,12 @@ class FacebookHelper{
 	}
 
 	/**
-	 * Function to initialize defaults from Settings.yaml
+	 * Function to Get Values from Override Class
+	 * @param NodeInterface
 	 * @return void
 	 */
-	public function initDefault(){
-		$ovr = new \Rahul\SocialConnect\Domain\Override\FbOverride();
+	public function getParams($node){
+		$ovr = new \Rahul\SocialConnect\Domain\Override\FbOverride($node);
 		//TODO Constructor fails to load settings so separate method is used
 		$ovr->init();
 		$this->caption = $ovr->getCaption();
@@ -84,6 +90,7 @@ class FacebookHelper{
 		$this->description = $ovr->getDescription();
 		$this->name = $ovr->getName();
 		$this->link = $ovr->getLink();
+		$this->content = $ovr->getContent();
 	}
 
 	/**
@@ -94,9 +101,7 @@ class FacebookHelper{
 	 * @api
 	 */
 	public function post($node){
-		$this->initDefault();// all the post parameters are set to the default ones mentioned in Settings.yaml
-		$contentData =$node->getNodeData();
-        $content = $contentData->getFullLabel();
+		$this->getParams($node);// all the post parameters are set to the default ones mentioned in Settings.yaml
      	FacebookSession::setDefaultApplication( $this->settings['facebook']['appid'],$this->settings['facebook']['secret'] );
      	$session = new FacebookSession($this->settings['facebook']['token']);	
      	try {
@@ -117,7 +122,7 @@ class FacebookHelper{
 					'description' => $this->description,
 					'name' => $this->name,
 					'caption' => $this->caption,
-					'message' => $content
+					'message' => $this->content
 			      )
 			    ))->execute()->getGraphObject();
 			   		 echo "Posted with id: " . $response->getProperty('id');

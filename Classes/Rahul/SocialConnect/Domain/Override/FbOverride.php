@@ -27,6 +27,11 @@ class FbOverride{
 	protected $settings;
 
 	/**
+	 * @var NodeInterface
+	 */
+	protected $node;
+
+	/**
  	 * @var string 
  	 */	
 	protected $link;
@@ -61,10 +66,20 @@ class FbOverride{
 	public function injectSettings(array $settings) {
 	    $this->settings = $settings;
 	}
+
 	/**
-	* A constructor for the class
-	* @return void
-	*/
+	 * @param NodeInterface $node 
+	 * Constructor
+	 * @return void
+	 */
+	public function __construct($node){
+		$this->node = $node;
+	}
+
+	/**
+	 * An Initializer
+	 * @return void
+	 */
 	public function init(){
 		$this->caption = $this->settings['facebook']['caption'];
 		$this->image = $this->settings['facebook']['image'];
@@ -75,44 +90,55 @@ class FbOverride{
 	}
 
 	/**
-	* Returns the caption
-	* @return string
-	*/
+	 * Returns the caption
+	 * @return string
+	 */
 	public function getCaption(){
 		return $this->caption;
 	}
 
 	/**
-	* Returns the link
-	* @return string
-	*/
+	 * Returns the link
+	 * @return string
+	 */
 	public function getLink(){
 		return $this->link;
 	}
 
 	/**
-	* Returns the description
-	* @return string
-	*/
+	 * Returns the description
+	 * @return string
+	 */
 	public function getDescription(){
 		return $this->description;
 	}
 
 	/**
-	* Returns the image
-	* @return string
-	*/
+	 * Returns the image
+	 * @return string
+	 */
 	public function getImage(){
 		return $this->image;
 	}
 
 	/**
-	* Returns the caption
-	* @return string
-	*/
+	 * Returns the caption
+	 * @return string
+	 */
 	public function getName(){
 		return $this->name;
 	}
+
+	/**
+	 * Returns the content label
+	 * @return string
+	 */
+	public function getContent(){
+		$contentData =$this->node->getNodeData();
+        $content = $contentData->getFullLabel();
+		return $content;
+	}
+
 }
 
 
