@@ -55,7 +55,11 @@ class FacebookHelper{
  	 */	
 	protected $description;
 
-
+	/**
+   	 * @var Rahul\SocialConnect\Domain\Override\FbOverride
+     * @Flow\Inject
+   	 */
+ 	 public $fb;
 	
 	/**
  	 * Inject settings
@@ -72,21 +76,14 @@ class FacebookHelper{
 	 * @return void
 	 */
 	public function initDefault(){
-		$this->caption = $this->settings['facebook']['caption'];
-		$this->image = $this->settings['facebook']['image'];
-		$this->description = $this->settings['facebook']['desc'];
-		$this->name = $this->settings['facebook']['name'];
-		$this->link = $this->settings['facebook']['link'];
-	}
-
-	/**
-	 * A function to ovveride the title of the link. it is usually set to default.You can change the default arguments in Settings.yaml
-	 * This function takes a complex Node and changes the link name to the text of the parent node if it has child nodes.
-	 * @return void
-	 * TODO
-	 */
-	public function overloadName(){
-		
+		$ovr = new \Rahul\SocialConnect\Domain\Override\FbOverride();
+		//TODO Constructor fails to load settings so separate method is used
+		$ovr->init();
+		$this->caption = $ovr->getCaption();
+		$this->image = $ovr->getImage();
+		$this->description = $ovr->getDescription();
+		$this->name = $ovr->getName();
+		$this->link = $ovr->getLink();
 	}
 
 	/**

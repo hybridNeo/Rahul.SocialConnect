@@ -15,6 +15,7 @@ use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
 
 /**
+ * TODO
  * Class to determine the Child Nodes of a class Node and to extract the right content from it
  * @Flow\Scope("prototype")
  */
@@ -28,31 +29,35 @@ class NodeExtractor{
 	protected $node;
 
 	/**
-	 * @var int
+	 * @var integer
 	 */
 	protected $nodeHeight;
 	
 	/**
 	 *
 	 * @param NodeInterface $node 
+	 * @return void
 	 */
-	function __costruct($node){
-		$this->node = $node;
+	public function __costruct($node){
 		$this->nodeHeight = 0;
+		$this->node = $node;
+		
 	}
+
 
 	/**
 	 * Returns the height of the node Tree starting at the given point
 	 * @param NodeInterface $node 
 	 * @return int 
 	 */
-	public function treeHeight(){
-		if($this->node->hasChildNode()){
-			$this->node = $this->node->getPrimaryChildNode();
+	public function treeHeight($node){
+		if($node->hasChildNodes())
+		{
 			$this->nodeHeight++;
-			treeHeight($this->node);
+			$this->treeHeight($node->getPrimaryChildNode());
 		}
 		return $this->nodeHeight;
+		
 	}
 }
 ?>
