@@ -26,3 +26,59 @@
                 label: 'Twitter'
               Google:
                 label: 'Google Plus'
+'TYPO3.Neos.NodeTypes:Page':
+  ui:
+    inspector:
+      groups:
+        advanced:
+          label: 'Social Connect'
+          position: 2
+  properties:
+    articleType:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Channel'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'Select Channel'
+            values:
+              '':
+                label: ''
+              Facebook:
+                label: 'Facebook'
+              Twitter:
+                label: 'Twitter'
+              Google:
+                label: 'Google Plus'
+'TYPO3.Neos.NodeTypes:Text':
+  ui:
+    inspector:
+      groups:
+        advanced:
+          label: 'Social Connect'
+          position: 2
+  properties:
+    articleType:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Channel'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'Select Channel'
+            values:
+              '':
+                label: ''
+              Facebook:
+                label: 'Facebook'
+              Twitter:
+                label: 'Twitter'
+              Google:
+                label: 'Google Plus'
