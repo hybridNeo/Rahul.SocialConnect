@@ -66,7 +66,7 @@ class NodeExtractor{
 	 * @return boolean
 	 */
 	public function isSupported($node){
-		if($node->hasProperty('articleType'))
+		if($node->hasProperty('facebook'))
 			return true;
 		else
 			return false;

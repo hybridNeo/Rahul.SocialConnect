@@ -35,9 +35,8 @@ class Notification{
     * @return void
     */  
   public function sendSocialConnect(Node $node,$targetWorkspace = NULL){
-      $channel = $node->getProperty('articleType');
-      $face = 'Facebook';
-      if($face == $channel)
+      $face = $node->getProperty('facebook');
+      if($face == 1)
       {
         $fb = new \Rahul\SocialConnect\Domain\Helpers\FacebookHelper();
         $fb->post($node);
