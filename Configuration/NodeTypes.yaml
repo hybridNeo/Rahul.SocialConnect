@@ -1,84 +1,94 @@
-'TYPO3.Neos.NodeTypes:Headline':
-  ui:
-    inspector:
-      groups:
-        advanced:
-          label: 'Social Connect'
-          position: 2
-  properties:
-    articleType:
-      type: string
-      defaultValue: ''
-      ui:
-        label: 'Channel'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'advanced'
-          editor: Content/Inspector/Editors/SelectBoxEditor
-          editorOptions:
-            placeholder: 'Select Channel'
-            values:
-              '':
-                label: ''
-              Facebook:
-                label: 'Facebook'
-              Twitter:
-                label: 'Twitter'
-              Google:
-                label: 'Google Plus'
 'TYPO3.Neos.NodeTypes:Page':
   ui:
     inspector:
       groups:
         advanced:
           label: 'Social Connect'
-          position: 2
   properties:
-    articleType:
-      type: string
+    facebook:
+      type: boolean
       defaultValue: ''
       ui:
-        label: 'Channel'
+        label: 'Facebook Publish'
         reloadIfChanged: TRUE
         inspector:
           group: 'advanced'
-          editor: Content/Inspector/Editors/SelectBoxEditor
-          editorOptions:
-            placeholder: 'Select Channel'
-            values:
-              '':
-                label: ''
-              Facebook:
-                label: 'Facebook'
-              Twitter:
-                label: 'Twitter'
-              Google:
-                label: 'Google Plus'
+    twitter:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Twitter Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    googlePlus:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Google Plus Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+'TYPO3.Neos.NodeTypes:Headline':
+  ui:
+    inspector:
+      groups:
+        advanced:
+          label: 'Social Connect'
+  properties:
+    facebook:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Facebook Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    twitter:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Twitter Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    googlePlus:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Google Plus Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
 'TYPO3.Neos.NodeTypes:Text':
   ui:
     inspector:
       groups:
         advanced:
           label: 'Social Connect'
-          position: 2
   properties:
-    articleType:
-      type: string
+    facebook:
+      type: boolean
       defaultValue: ''
       ui:
-        label: 'Channel'
+        label: 'Facebook Publish'
         reloadIfChanged: TRUE
         inspector:
           group: 'advanced'
-          editor: Content/Inspector/Editors/SelectBoxEditor
-          editorOptions:
-            placeholder: 'Select Channel'
-            values:
-              '':
-                label: ''
-              Facebook:
-                label: 'Facebook'
-              Twitter:
-                label: 'Twitter'
-              Google:
-                label: 'Google Plus'
+    twitter:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Twitter Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    googlePlus:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Google Plus Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+                    
