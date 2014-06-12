@@ -15,7 +15,7 @@
   
     
 /**
- * Facebook slot class
+ * Facebook slot class.Listens to the publishing process.
  *
  * @Flow\Scope("singleton")
  */
@@ -40,17 +40,23 @@ class Notification{
       {
         $fb = new \Rahul\SocialConnect\Domain\Helpers\FacebookHelper();
         $fb->post($node);
-      }
-      //ignore the following statements.just debug trace
-      $extractor = new \Rahul\SocialConnect\Analyzer\NodeExtractor($node);
-      $check = $extractor->isSupported($node);
-      $contentData =$node->getNodeData();
-      $content = $contentData->getFullLabel();
-      $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
-      echo $content;
-      fwrite($fp,$check);
-      fclose($fp);
-      
+        //A lot of debug statements ignore
+        $contentData =$node->getNodeData();
+        $buffer = '  ';
+        if($node->hasChildNodes())
+          {
+            $arrNodes = $node->getChildNodes();    
+             foreach ($arrNodes as $k) {
+               $buffer = $buffer.$k->getNodeData()->getFullLabel();
+               $buffer = $buffer.' ';
+              }
+          }
+        $content = $contentData->getFullLabel();
+        $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
+        echo $content;
+        fwrite($fp,$buffer);
+        fclose($fp);
+      } 
   }
 
 }

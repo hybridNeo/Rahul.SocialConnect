@@ -19,7 +19,7 @@ use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
 
 /**
- * Facebook Helper for Facebook package
+ * Facebook Helper class to post on Facebook
  *
  * @Flow\Scope("prototype")
  */
@@ -77,7 +77,7 @@ class FacebookHelper{
 	}
 
 	/**
-	 * Function to Get Values from Override Class
+	 * Function to Get values from override Class
 	 * @param NodeInterface
 	 * @return void
 	 */
@@ -101,7 +101,7 @@ class FacebookHelper{
 	 * @api
 	 */
 	public function post($node){
-		$this->getParams($node);// all the post parameters are set to the default ones mentioned in Settings.yaml
+		$this->getParams($node);
      	FacebookSession::setDefaultApplication( $this->settings['facebook']['appid'],$this->settings['facebook']['secret'] );
      	$session = new FacebookSession($this->settings['facebook']['token']);	
      	try {
