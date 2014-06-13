@@ -82,7 +82,9 @@ class FacebookHelper{
 	 * @return void
 	 */
 	public function getParams($node){
-		$ovr = new \Rahul\SocialConnect\Domain\Override\FbOverride($node);
+		$factory = new \Rahul\SocialConnect\Domain\Factory\FacebookFactory($node);
+		$nodeType = $node->getNodeType()->getName();
+		$ovr =$factory->create($nodeType);
 		//TODO Constructor fails to load settings so separate method is used
 		$ovr->init();
 		$this->caption = $ovr->getCaption();

@@ -42,19 +42,14 @@ class Notification{
         $fb->post($node);
         //A lot of debug statements ignore
         $contentData =$node->getNodeData();
-        $buffer = '  ';
-        if($node->hasChildNodes())
-          {
-            $arrNodes = $node->getChildNodes();    
-             foreach ($arrNodes as $k) {
-               $buffer = $buffer.$k->getNodeData()->getFullLabel();
-               $buffer = $buffer.' ';
-              }
-          }
+        $nodeType = $node->getNodeType();
+        $nodeName = $nodeType->getName();
+        $parent = $node->getParent()->getParent();
+        $contentData = $parent->getNodeData();
         $content = $contentData->getFullLabel();
         $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
         echo $content;
-        fwrite($fp,$buffer);
+        fwrite($fp,$nodeName);
         fclose($fp);
       } 
   }
