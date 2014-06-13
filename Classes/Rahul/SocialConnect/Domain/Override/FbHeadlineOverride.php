@@ -21,13 +21,30 @@ use TYPO3\TYPO3CR\Domain\Model\Node;
  */
 class FbHeadlineOverride extends FbOverride{
 
+
+	/**
+	 * This the Page Node which the headline is contained in 
+	 * @var NodeInterface
+	 */
+	protected $parent;
+
+
+	/**
+	 * @param NodeInterface $node 
+	 * Constructor
+	 * @return void
+	 */
+	public function __construct($node){
+		$this->node = $node;
+		$this->parent = $node->getParent()->getParent();
+	}
+
 	/**
 	 * Returns the caption
 	 * @return string
 	 */
 	public function getName(){
-		$parent = $this->node->getParent()->getParent();
-		$contentData = $parent->getNodeData();
+		$contentData = $this->parent->getNodeData();
         $cap = $contentData->getFullLabel();
         $this->caption =  $cap;
 		return $this->caption;
