@@ -22,15 +22,103 @@ use TYPO3\TYPO3CR\Domain\Model\Node;
 class FbPageOverride extends FbOverride{
 
 	/**
-	 * Returns the description
-	 * @return string
+	 * This the Page Node which the headline is contained in 
+	 * @var NodeInterface
 	 */
-	public function getDescription(){
-		$this->description = null;
-		return $this->description;
+	protected $contentCollection;
+
+	/**
+	 * Headline nodename
+	 */
+	const HEADLINE = 'TYPO3.Neos.NodeTypes:Headline';
+
+	/**
+	 * TwoColumn nodename
+	 */
+	const TWO_COL = 'TYPO3.Neos.NodeTypes:TwoColumn';
+
+	/**
+	 * @param NodeInterface $node 
+	 * Constructor
+	 * @return void
+	 */
+	public function __construct($node){
+		$this->node = $node;
+		$this->contentCollection = $node->getPrimaryChildNode();
+	   
 	}
 
 
+	/**
+	 * Returns the content for the post
+	 * @return string
+	 */
+	public function getContent(){
+		$this->content = null;
+		if($this->contentCollection->hasChildNodes(self::HEADLINE)){
+			$textNodes = $this->contentCollection->getChildNodes(self::HEADLINE);
+			$text = $textNodes[0]->getNodeData()->getFullLabel();
+			$this->content = $text;
+		}
+		return $this->content;
+	}
+
+	
+	/**
+	 * Returns the name
+	 * @return string
+	 */
+	public function getName(){
+		$contentData = $this->node->getNodeData();
+        $cap = $contentData->getFullLabel();
+        $this->caption =  $cap;
+		return $this->caption;
+	}
+
+	/**
+   	 * Returns the address to the page
+     *
+     * @param NodeInterface $node
+   	 * @return base path
+  	 */
+  	public function basePath($node){
+   		$page = $this->node;
+    	while($node->getParent() != null){
+    	    $node= $node->getParent();
+     	}
+     	$node = $node->getPrimaryChildNode()->getPrimaryChildNode();
+     	$nodePath = $node->getPath();
+     	$parentPath = $page->getPath();
+     	$nodePath = str_replace($nodePath,"",$parentPath);
+     	return $nodePath;
+    }
+
+    /**
+	 * Returns the link
+	 * @return string
+	 */
+	public function getLink(){
+		$this->link = $this->link.$this->basePath($this->node).'.html';
+		return $this->link;
+	}
+
+
+	/**
+	 * Returns the caption
+	 * @return string
+	 */
+	public function getCaption(){
+		$this->caption = null;
+		$content = null;
+		if($this->contentCollection->hasChildNodes(self::TWO_COL)){
+			$content = $this->contentCollection->getChildNodes(self::TWO_COL); 
+			$textNode = $content[0]->getPrimaryChildNode()->getPrimaryChildNode();
+			$text = $textNode->getNodeData()->getFullLabel();
+			$this->caption = $text;
+		}
+		
+		return $this->caption;
+	}
 }
 
 

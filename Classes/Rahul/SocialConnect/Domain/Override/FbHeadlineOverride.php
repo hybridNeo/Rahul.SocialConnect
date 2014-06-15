@@ -40,7 +40,7 @@ class FbHeadlineOverride extends FbOverride{
 	}
 
 	/**
-	 * Returns the caption
+	 * Returns the name
 	 * @return string
 	 */
 	public function getName(){
