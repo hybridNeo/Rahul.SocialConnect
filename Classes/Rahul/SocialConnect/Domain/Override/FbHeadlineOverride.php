@@ -50,6 +50,61 @@ class FbHeadlineOverride extends FbOverride{
 		return $this->caption;
 	}
 
+	/**
+   	 * Returns the base Path of the site
+     *
+     * @param NodeInterface $node
+   	 * @return base path
+  	 */
+  	public function basePath($node){
+   		$page = $node->getParent()->getParent();
+    	while($node->getParent() != null){
+    	    $node= $node->getParent();
+     	}
+     	$node = $node->getPrimaryChildNode()->getPrimaryChildNode();
+     	$nodePath = $node->getPath();
+     	$parentPath = $page->getPath();
+     	$nodePath = str_replace($nodePath,"",$parentPath);
+     	return $nodePath;
+    }
+
+    /**
+	 * Returns the link
+	 * @return string
+	 */
+	public function getLink(){
+		$this->link = $this->link.$this->basePath($this->node).'.html';
+		return $this->link;
+	}
+
+	/**
+	 * Returns the link
+	 * @return string
+	 */
+	public function getCaption(){
+		$this->caption = $this->getContent();
+		return $this->caption;
+	}
+
+	/**
+	 * Returns the description
+	 * @return string
+	 */
+	public function getDescription(){
+		$this->description = null;
+		return $this->description;
+	}
+
+
+	/**
+	 * Returns the Image
+	 * @return string
+	 */
+	public function getImage(){
+		$this->image = null;
+		return $this->image;
+	}
+
 
 
 
