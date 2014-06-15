@@ -40,14 +40,18 @@ class Notification{
       {
         $fb = new \Rahul\SocialConnect\Domain\Helpers\FacebookHelper();
         $fb->post($node);
-        /*
-        //A lot of debug statements ignore
-        //$parent = $node->getParent()->getParent();
-       // $link = $this->basePath($node);
+        //ignore after
+
+        $contentCollecton = $node->getPrimaryChildNode();
+        $noda = $contentCollecton->getChildNodes('TYPO3.Neos.NodeTypes:Headline');
+        $n = $noda[0];
+        $nodeType= $n->getNodeType()->getName();
+        $textData = $n->getNodeData();
+        $text = $textData->getFullLabel();
         $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
-        fwrite($fp,$link);
+        fwrite($fp,$nodeType);
         fclose($fp);
-        */
+        
       } 
   }
  

@@ -27,8 +27,19 @@ class FacebookFactory{
 	 * @Flow\Inject
 	 */
 	protected $objectManager;
+	
+	/**
+	 * @var string
+	 * 
+	 */
+	const HEADLINE = 'TYPO3.Neos.NodeTypes:Headline';
 
-
+	/**
+	 * @var string
+	 * 
+	 */
+	const PAGE = 'TYPO3.Neos.NodeTypes:Page';
+	
 	/**
 	 * @var NodeInterface
 	 */
@@ -50,9 +61,10 @@ class FacebookFactory{
 	 * @return Rahul\SocialConnect\Domain\Override/FbOverride
 	 */
 	public function create($nodeType){
-		$headline = 'TYPO3.Neos.NodeTypes:Headline';
-		if($nodeType == $headline)
+		if($nodeType == self::HEADLINE)
 			return new \Rahul\SocialConnect\Domain\Override\FbHeadlineOverride($this->node);
+		elseif($nodeType == self::PAGE)
+			return new \Rahul\SocialConnect\Domain\Override\FbPageOverride($this->node);
 		else
 			return new \Rahul\SocialConnect\Domain\Override\FbOverride($this->node);
 	

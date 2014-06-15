@@ -51,13 +51,13 @@ class FbHeadlineOverride extends FbOverride{
 	}
 
 	/**
-   	 * Returns the base Path of the site
+   	 * Returns the address to the page
      *
      * @param NodeInterface $node
    	 * @return base path
   	 */
   	public function basePath($node){
-   		$page = $node->getParent()->getParent();
+   		$page = $this->parent;
     	while($node->getParent() != null){
     	    $node= $node->getParent();
      	}
