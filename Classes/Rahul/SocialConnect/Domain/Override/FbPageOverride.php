@@ -33,9 +33,14 @@ class FbPageOverride extends FbOverride{
 	const HEADLINE = 'TYPO3.Neos.NodeTypes:Headline';
 
 	/**
-	 * TwoColumn nodename
+	 * Text nodename
 	 */
-	const TEXT = 'TYPO3.Neos.NodeTypes:Text'                                                                                           ;
+	const TEXT = 'TYPO3.Neos.NodeTypes:Text';
+
+	/**
+	 * Page nodename
+	 */
+	const PAGE = 'TYPO3.Neos.NodeTypes:Page';
 
 	/**
 	 * @param NodeInterface $node 
@@ -105,20 +110,18 @@ class FbPageOverride extends FbOverride{
 
 	/**
 	 * Returns the caption
+	 * Unstable:Fails with content Collection teaser
 	 * @return string
 	 */
 	public function getCaption(){
 		$this->caption = null;
 		$content = null;
-		$textNode = $this->textFinder($this->node,self::TEXT);
-		$this->caption = $textNode->getNodeData()->getFullLabel();
-		/*if($this->contentCollection->hasChildNodes(self::TWO_COL)){
-			$content = $this->contentCollection->getChildNodes(self::TWO_COL); 
-			$textNode = $content[0]->getPrimaryChildNode()->getPrimaryChildNode();
-			$text = $textNode->getNodeData()->getFullLabel();
-			$this->caption = $text;
+		$foo = $this->node;
+		while($foo->getParent() != null && $foo->getParent()->getNodeType()->getName() == self::PAGE){
+			$foo = $foo->getParent();
 		}
-		*/
+		$textNode = $this->textFinder($foo,self::TEXT);
+		$this->caption = $textNode->getNodeData()->getFullLabel();
 		return $this->caption;
 	}
 }
