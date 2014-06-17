@@ -28,6 +28,11 @@ class Notification{
   public $fb;
 
   /**
+   * @var string
+   */
+  public $str;
+
+  /**
     * Receive Published Nodes
     *
     * @param NodeInterface $node
@@ -37,30 +42,27 @@ class Notification{
   public function sendSocialConnect(Node $node,$targetWorkspace = NULL){
       $face = $node->getProperty('facebook');
       if($face == 1)
-      {
+      { $this->str = 'nothing';
         $fb = new \Rahul\SocialConnect\Domain\Helpers\FacebookHelper();
         $fb->post($node);
         //ignore after
-        /*
-        $contentCollecton = $node->getPrimaryChildNode();
-        $noda = $contentCollecton->getChildNodes('TYPO3.Neos.NodeTypes:TwoColumn');
-        $n = $noda[0];
-        $n = $noda[0]->getPrimaryChildNode()->getPrimaryChildNode();
-        $nodeType= $n->getNodeType()->getName();
-        $textData = $n->getNodeData();
-        $text = $textData->getFullLabel();
+        /*$n = $this->textFinder($node,'TYPO3.Neos.NodeTypes:Text');
+        if($n==null){
+          $text = 'halelujah';
+        } 
+        else{
+          $text = $n->getNodeData()->getFullLabel();
+        }
         $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
         fwrite($fp,$text);
         fclose($fp);
         */
       } 
+
   }
- 
+
+
 
 }
-
-
-
-
 
 ?>

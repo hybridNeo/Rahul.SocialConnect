@@ -35,7 +35,7 @@ class FbPageOverride extends FbOverride{
 	/**
 	 * TwoColumn nodename
 	 */
-	const TWO_COL = 'TYPO3.Neos.NodeTypes:TwoColumn';
+	const TEXT = 'TYPO3.Neos.NodeTypes:Text'                                                                                           ;
 
 	/**
 	 * @param NodeInterface $node 
@@ -110,13 +110,15 @@ class FbPageOverride extends FbOverride{
 	public function getCaption(){
 		$this->caption = null;
 		$content = null;
-		if($this->contentCollection->hasChildNodes(self::TWO_COL)){
+		$textNode = $this->textFinder($this->node,self::TEXT);
+		$this->caption = $textNode->getNodeData()->getFullLabel();
+		/*if($this->contentCollection->hasChildNodes(self::TWO_COL)){
 			$content = $this->contentCollection->getChildNodes(self::TWO_COL); 
 			$textNode = $content[0]->getPrimaryChildNode()->getPrimaryChildNode();
 			$text = $textNode->getNodeData()->getFullLabel();
 			$this->caption = $text;
 		}
-		
+		*/
 		return $this->caption;
 	}
 }
