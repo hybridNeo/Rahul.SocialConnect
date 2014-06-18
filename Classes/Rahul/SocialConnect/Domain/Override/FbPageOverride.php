@@ -15,7 +15,7 @@ use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
 
 /**
- * The specific override class for Headline data type
+ * The specific override class for a Page node type
  *
  * @Flow\Scope("prototype")
  */

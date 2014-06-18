@@ -20,7 +20,6 @@ use TYPO3\TYPO3CR\Domain\Model\Node;
 
 /**
  * Facebook Helper class to post on Facebook
- *
  * @Flow\Scope("prototype")
  */
 class FacebookHelper{
@@ -64,7 +63,7 @@ class FacebookHelper{
    	 * @var Rahul\SocialConnect\Domain\Override\FbOverride
      * @Flow\Inject
    	 */
- 	 public $fb;
+ 	public $fb;
 	
 	/**
  	 * Inject settings

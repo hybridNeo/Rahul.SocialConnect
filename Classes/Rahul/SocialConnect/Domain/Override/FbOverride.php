@@ -16,7 +16,7 @@ use TYPO3\TYPO3CR\Domain\Model\Node;
 
 /**
  * Default Override class for Facebook Post Parameters
- *
+ * Non Defined NodeTypes Default to this
  * @Flow\Scope("prototype")
  */
 class FbOverride{

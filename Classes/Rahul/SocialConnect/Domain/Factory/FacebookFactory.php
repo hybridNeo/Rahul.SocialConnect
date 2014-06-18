@@ -17,7 +17,7 @@ use TYPO3\TYPO3CR\Domain\Model\Node;
 
 /**
  * Facebook Factory for instantiating the right Object type
- *
+ * Depending on the NodeType  create function returns a specific object
  * @Flow\Scope("singleton")
  */
 class FacebookFactory{
@@ -29,14 +29,12 @@ class FacebookFactory{
 	protected $objectManager;
 	
 	/**
-	 * @var string
-	 * 
+	 * NodeName of Headline 
 	 */
 	const HEADLINE = 'TYPO3.Neos.NodeTypes:Headline';
 
 	/**
-	 * @var string
-	 * 
+	 * NodeName of Page
 	 */
 	const PAGE = 'TYPO3.Neos.NodeTypes:Page';
 	

@@ -15,8 +15,7 @@
   
     
 /**
- * Facebook slot class.Listens to the publishing process.
- *
+ * Notification Class for SocialConnect It holds the slot and helpers which listens to the publishing process.
  * @Flow\Scope("singleton")
  */
 class Notification{  
@@ -28,13 +27,8 @@ class Notification{
   public $fb;
 
   /**
-   * @var string
-   */
-  public $str;
-
-  /**
     * Receive Published Nodes
-    *
+    * A Slot to listen to PublishingProcess
     * @param NodeInterface $node
     * @param mixed $targetWorkspace In case this is triggered during publishing, a Workspace will be passed in
     * @return void
@@ -42,7 +36,7 @@ class Notification{
   public function sendSocialConnect(Node $node,$targetWorkspace = NULL){
       $face = $node->getProperty('facebook');
       if($face == 1)
-      { $this->str = 'nothing';
+      { 
         $fb = new \Rahul\SocialConnect\Domain\Helpers\FacebookHelper();
         $fb->post($node);
         //ignore after
