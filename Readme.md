@@ -1,7 +1,7 @@
 # Social Connect.
 A multi Channel Social Connector for TYPO3-Neos.Project for Google Summer Of Code .
 ## Working now:
-* Facebook Publishing - Currently works for Headline NodeType.
+* Facebook Publishing - Currently works for any NodeType.Depending on the NodeType Override can be wrriten.Currently Page/Headline/Text are supported.
 
 ## Setup:
 * Clone the Repo
