@@ -1,4 +1,4 @@
-  {
+{
     "name": "rahul/socialconnect",
     "type": "typo3-flow-package",
     "description": "A Social media multi channel connector for TYPO3 Neos",
@@ -8,7 +8,8 @@
         "typo3/flow": "dev-master"
     },
     "require-dev": {
-        "facebook/php-sdk-v4" : "4.0.*"
+        "facebook/php-sdk-v4" : "4.0.*",
+        "jublonet/codebird-php": "dev-develop"
     },
     
    
