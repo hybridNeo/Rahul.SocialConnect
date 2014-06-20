@@ -12,7 +12,7 @@
   use TYPO3\Flow\Annotations as Flow;
   use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
   use TYPO3\TYPO3CR\Domain\Model\Node;
-  
+  use Codebird\Codebird;
     
 /**
  * Notification Class for SocialConnect It holds the slot and helpers which listens to the publishing process.
@@ -26,6 +26,12 @@ class Notification{
    */
   public $fb;
 
+   /**
+   * @var Rahul\SocialConnect\Domain\Helpers\TwitterHelper
+   * @Flow\Inject
+   */
+  public $tw;
+
   /**
     * Receive Published Nodes
     * A Slot to listen to PublishingProcess
@@ -35,6 +41,7 @@ class Notification{
     */  
   public function sendSocialConnect(Node $node,$targetWorkspace = NULL){
       $face = $node->getProperty('facebook');
+      $twitter = $node->getProperty('twitter');
       if($face == 1)
       { 
         $fb = new \Rahul\SocialConnect\Domain\Helpers\FacebookHelper();
@@ -51,7 +58,16 @@ class Notification{
         fwrite($fp,$text);
         fclose($fp);
         */
-      } 
+      }
+      if($twitter == 1){
+        $tw = new \Rahul\SocialConnect\Domain\Helpers\TwitterHelper($node);
+        $tw->post();
+        $text = 'paranoid';
+        $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
+        fwrite($fp,$text);
+        fclose($fp);
+      }
+
 
   }
 
