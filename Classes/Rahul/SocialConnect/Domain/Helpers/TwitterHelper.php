@@ -65,9 +65,9 @@ class TwitterHelper{
 	 * @api
 	 */
 	public function post(){
-		Codebird::setConsumerKey("eEM91ImngwXqzUeRgeSeQtPS5", "6zjmNqm4sYC4BL5danFeR7Neyrft8gzTToeOgJxtS7AhIqFRZ5");
+		Codebird::setConsumerKey( $this->settings['twitter']['apiKey'],$this->settings['twitter']['apiSecret']);
         $cb = Codebird::getInstance();
-        $cb->setToken("2449177514-8E3jbUr8Wd1RJbI5kqNedi72SXsz9wmPSMBHlDt", "sZHWHQ8VENajpQjRpdNQwAt3BqvsfP1ofA6FUazpgbKtI");
+        $cb->setToken($this->settings['twitter']['token'], $this->settings['twitter']['tokenSecret']);
         $params = array(
           'status' => ' another test post 2#php #twitter'
         );
