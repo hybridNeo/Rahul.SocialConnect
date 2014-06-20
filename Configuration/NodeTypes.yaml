@@ -21,11 +21,11 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'advanced'
-    googlePlus:
+    linkedIn:
       type: boolean
       defaultValue: ''
       ui:
-        label: 'Google Plus Publish'
+        label: 'LinkedIn Publish'
         reloadIfChanged: TRUE
         inspector:
           group: 'advanced'

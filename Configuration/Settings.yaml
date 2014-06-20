@@ -1,13 +1,18 @@
 Rahul:
   SocialConnect:
     facebook:
-      appid: 'XXXXXXXXXXXXX' #Enter Your Facebook App ID.visit deveoper.facebook.com
-      secret: 'XXXXXXXXXXXXXX' #app secret
-      user: '222584177830048' # the profile / page you want to post on
-      link: 'www.example.com' #The link to your website
+      appid: '300704070093400' #Enter Your Facebook App ID.visit deveoper.facebook.com
+      secret: '392d3e6cf62daa323b1303904bec0037' #app secret
+      user: '140716475946967' # the profile / page you want to post on
+      link: 'neos.demo' #The link to your website
       caption: 'some caption' #caption for the link
       name: 'some name' #Title for the post
-      desc: 'some desc' #Description for the post
-      image: 'XXXXXXXXXXXX' #URL to the image
+      desc: 'This is a test blog to test the SocialConnect feature for Neos' #Description for the post
+      image: 'http://www.cms2cms.com/wp-content/uploads/2013/05/typo3logo.jpg' #URL to the image
       ##Get the access token at https://developers.facebook.com/tools/explorer/?method=GET&path=me%3Ffields%3Did%2Cname
-      token: 'XXXXXXXXXXXXXX'
+      token: 'CAAERfR9HylgBAGN9HSFZAcphxdsxPAKZAXzztBd2hk3TyRfuPaU6MWBzTSQaUZAZCesaeZAOdOVDYxFD28WYu6bkZAdzzpjr2QGi7oQGQgdE0v78sGNZB68H6ZBKNQYqaZC8JCikRZA6ZAe6uWT7tetm7ZAaIeHx8xUisZCUrqhiZCCGVCQEQGI8JpNUKu'
+    twitter: #visit https://apps.twitter.com/app/<your app id >/keys
+      apiKey: 'Your API key here' # API Key 
+      apiSecret: 'Your API secret here ' #API Secret
+      token: 'Your access token here ' #Access Token 
+      tokenSecret: 'Your Access token secret here ' #Acess token secret
