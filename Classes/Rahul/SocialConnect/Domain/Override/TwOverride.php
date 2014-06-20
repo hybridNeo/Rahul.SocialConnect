@@ -1,6 +1,5 @@
 <?php
-namespace Rahul\SocialConnect\Domain\Helpers;
-
+namespace Rahul\SocialConnect\Domain\Override;
 /*                                                                        *
  * This script belongs to the TYPO3 Flow package "Rahul.SocialConnect".   *
  *                                                                        *
@@ -14,19 +13,13 @@ namespace Rahul\SocialConnect\Domain\Helpers;
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
-use Codebird\Codebird;
 
 /**
- * Twitter Helper class to post on Twitter
+ * Default Override class for Twitter Post Parameters
+ * Non Defined NodeTypes Default to this
  * @Flow\Scope("prototype")
  */
-class TwitterHelper{
-
-	/**
- 	 * @var array
- 	 */	
-	protected $settings;
-
+class TwOverride{
 	/**
 	 * @var NodeInterface
 	 */
@@ -38,17 +31,6 @@ class TwitterHelper{
 	protected $tweet;
 
 	/**
- 	 * Inject settings
- 	 *
- 	 * @param array $settings
- 	 * @return void
- 	 */
-	public function injectSettings(array $settings) {
-	    $this->settings = $settings;
-	}
-
-
-	/**
 	 * @param NodeInterface $node 
 	 * Constructor
 	 * @return void
@@ -58,23 +40,27 @@ class TwitterHelper{
 	}
 
 	/**
-	 * Helper method to post to Facebook.
-	 * Specify AppID and secret along with other data in configuration.yaml files under Configuration 
-	 * @param NodeInterface $node 
-	 * @return void
-	 * @api
+	 * Returns the content label
+	 * @return string
 	 */
-	public function post(){
-		Codebird::setConsumerKey( $this->settings['twitter']['apiKey'],$this->settings['twitter']['apiSecret']);
-        $cb = Codebird::getInstance();
-        $cb->setToken($this->settings['twitter']['token'], $this->settings['twitter']['tokenSecret']);
-        $ovr = new \Rahul\SocialConnect\Domain\Override\TwOverride($this->node);
-        $params = array(
-          'status' => $ovr->getContent()
-        );
-        $reply = $cb->statuses_update($params);
+	public function getContent(){
+		$contentData =$this->node->getNodeData();
+        $content = $contentData->getFullLabel();
+		return $content;
 	}
 
+ 	
+
+
+
+
+
+
+
+
 }
+
+
+
 
 ?>
