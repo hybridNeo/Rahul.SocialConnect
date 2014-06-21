@@ -49,7 +49,36 @@ class TwOverride{
 		return $content;
 	}
 
- 	
+ 	/**
+  	 * Find the first Text Node matching the grammar description
+   	 * @param NodeInterface $node
+     * @param string $grammar
+     * @return NodeInterface
+     */
+ 	public function textFinder($node,$grammar){
+	    if($node->hasChildNodes($grammar)){
+	      $kids = $node->getChildNodes($grammar);
+	      return $kids[0];
+	    }
+	    if($node->getPrimaryChildNode()!=null){
+	      if($node->getPrimaryChildNode()->getNodeType()->getName() == $grammar)
+	        return $node->getPrimaryChildNode();
+	      $stud = $this->textFinder($node->getPrimaryChildNode(),$grammar);
+	      if($stud!=null){
+	        return $stud;
+	      }
+	    }
+	    if($node->hasChildNodes())
+	     { 
+	      $children = $node->getChildNodes();
+	      foreach ($children as $k) {
+	            $kid = $this->textFinder($k,$grammar);
+	            if($kid != null)
+	              return $kid;
+	            }
+	      }
+	    return null;
+	 }
 
 
 

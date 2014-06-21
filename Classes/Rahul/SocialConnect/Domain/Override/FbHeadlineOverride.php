@@ -36,7 +36,9 @@ class FbHeadlineOverride extends FbOverride{
 	 */
 	public function __construct($node){
 		$this->node = $node;
-		$this->parent = $node->getParent()->getParent();
+		$this->parent = $node;
+		while($this->parent->getNodeType()->getName() != 'TYPO3.Neos.NodeTypes:Page')
+			$this->parent = $this->parent->getParent();
 	}
 
 	/**
@@ -73,7 +75,8 @@ class FbHeadlineOverride extends FbOverride{
 	 * @return string
 	 */
 	public function getLink(){
-		$this->link = $this->link.$this->basePath($this->node).'.html';
+		if($this->basePath($this->node) != null)
+			$this->link = $this->link.$this->basePath($this->node).'.html';
 		return $this->link;
 	}
 
