@@ -16,25 +16,23 @@ use TYPO3\TYPO3CR\Domain\Model\Node;
 
 
 /**
- * Facebook Factory for instantiating the right Object type
+ * Twitter Factory for instantiating the right Object type
  * Depending on the NodeType  create function returns a specific object
  * @Flow\Scope("singleton")
  */
-class FacebookFactory extends Factory{
+class TwitterFactory extends Factory{
 	
 	/**
 	 * Instantiates an object of the facebook override class based on the specified nodetype
-	 * deafaults to FbOverride
+	 * deafaults to TwOverride
 	 * @param string
-	 * @return Rahul\SocialConnect\Domain\Override/FbOverride
+	 * @return Rahul\SocialConnect\Domain\Override/TwOverride
 	 */
 	public function create($nodeType){
 		if($nodeType == self::HEADLINE)
-			return new \Rahul\SocialConnect\Domain\Override\FbHeadlineOverride($this->node);
-		elseif($nodeType == self::PAGE)
-			return new \Rahul\SocialConnect\Domain\Override\FbPageOverride($this->node);
+			return new \Rahul\SocialConnect\Domain\Override\TwHeadlineOverride($this->node);
 		else
-			return new \Rahul\SocialConnect\Domain\Override\FbOverride($this->node);
+			return new \Rahul\SocialConnect\Domain\Override\TwOverride($this->node);
 	
 	}
 }

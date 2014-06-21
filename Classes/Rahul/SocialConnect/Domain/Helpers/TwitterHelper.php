@@ -69,6 +69,9 @@ class TwitterHelper{
         $cb = Codebird::getInstance();
         $cb->setToken($this->settings['twitter']['token'], $this->settings['twitter']['tokenSecret']);
         $ovr = new \Rahul\SocialConnect\Domain\Override\TwOverride($this->node);
+        $factory = new \Rahul\SocialConnect\Domain\Factory\TwitterFactory($this->node);
+		$nodeType = $this->node->getNodeType()->getName();
+		$ovr =$factory->create($nodeType);
         $params = array(
           'status' => $ovr->getContent()
         );

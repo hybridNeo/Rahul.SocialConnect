@@ -16,28 +16,52 @@ use TYPO3\TYPO3CR\Domain\Model\Node;
 
 
 /**
- * Facebook Factory for instantiating the right Object type
+ * Parent Base Class Factory
  * Depending on the NodeType  create function returns a specific object
  * @Flow\Scope("singleton")
  */
-class FacebookFactory extends Factory{
+class Factory{
+	/**
+	 * @var \TYPO3\Flow\Object\ObjectManagerInterface
+	 * @Flow\Inject
+	 */
+	protected $objectManager;
 	
 	/**
-	 * Instantiates an object of the facebook override class based on the specified nodetype
-	 * deafaults to FbOverride
-	 * @param string
-	 * @return Rahul\SocialConnect\Domain\Override/FbOverride
+	 * NodeName of Headline 
 	 */
-	public function create($nodeType){
-		if($nodeType == self::HEADLINE)
-			return new \Rahul\SocialConnect\Domain\Override\FbHeadlineOverride($this->node);
-		elseif($nodeType == self::PAGE)
-			return new \Rahul\SocialConnect\Domain\Override\FbPageOverride($this->node);
-		else
-			return new \Rahul\SocialConnect\Domain\Override\FbOverride($this->node);
+	const HEADLINE = 'TYPO3.Neos.NodeTypes:Headline';
+
+	/**
+	 * NodeName of Page
+	 */
+	const PAGE = 'TYPO3.Neos.NodeTypes:Page';
 	
+	/**
+	 * @var NodeInterface
+	 */
+	protected $node;
+
+	/**
+	 * @param NodeInterface $node 
+	 * Constructor
+	 * @return void
+	 */
+	public function __construct($node){
+		$this->node = $node;
 	}
+
+
 }
+
+
+
+
+
+
+
+
+
 
 
 ?>
