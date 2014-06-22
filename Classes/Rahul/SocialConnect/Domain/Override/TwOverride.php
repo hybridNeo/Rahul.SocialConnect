@@ -40,13 +40,24 @@ class TwOverride{
 	}
 
 	/**
+ 	 * Inject settings
+ 	 *
+ 	 * @param array $settings
+ 	 * @return void
+ 	 */
+	public function injectSettings(array $settings) {
+	    $this->settings = $settings;
+	}
+
+
+	/**
 	 * Returns the content label
 	 * @return string
 	 */
 	public function getContent(){
 		$contentData =$this->node->getNodeData();
-        $content = $contentData->getFullLabel();
-		return $content;
+        $this->tweet = $contentData->getFullLabel();
+		return $this->tweet;
 	}
 
  	/**

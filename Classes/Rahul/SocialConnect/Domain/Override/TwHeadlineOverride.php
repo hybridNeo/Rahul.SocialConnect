@@ -22,7 +22,62 @@ use TYPO3\TYPO3CR\Domain\Model\Node;
 class TwHeadlineOverride extends TwOverride{
 
 
+	/**
+	 * This the Page Node which the headline is contained in 
+	 * @var NodeInterface
+	 */
+	protected $parent;
 
+	/**
+	 * @param NodeInterface $node 
+	 * Constructor
+	 * @return void
+	 */
+	public function __construct($node){
+		$this->node = $node;
+		$this->parent = $node;
+		while($this->parent->getNodeType()->getName() != 'TYPO3.Neos.NodeTypes:Page')
+			$this->parent = $this->parent->getParent();
+	}
+
+	/**
+   	 * Returns the address to the page
+     *
+     * @param NodeInterface $node
+   	 * @return base path
+  	 */
+  	public function basePath($node){
+   		$page = $this->parent;
+    	while($node->getParent() != null){
+    	    $node= $node->getParent();
+     	}
+     	$node = $node->getPrimaryChildNode()->getPrimaryChildNode();
+     	$nodePath = $node->getPath();
+     	$parentPath = $page->getPath();
+     	$nodePath = str_replace($nodePath,"",$parentPath);
+     	return $nodePath;
+    }
+
+    /**
+	 * Returns the link
+	 * @return string
+	 */
+	public function getLink(){
+		$link = $this->settings['twitter']['link'];
+		if($this->basePath($this->node) != null)
+			$link = $link.$this->basePath($this->node).'.html';
+		return $link;
+	}
+
+	/**
+	 * Returns the content label
+	 * @return string
+	 */
+	public function getContent(){
+		$contentData =$this->node->getNodeData();
+        $this->tweet = $contentData->getFullLabel().' '.$this->getLink();
+		return $this->tweet;
+	}
 
 
 }
