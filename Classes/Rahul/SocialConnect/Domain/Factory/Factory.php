@@ -21,6 +21,7 @@ use TYPO3\TYPO3CR\Domain\Model\Node;
  * @Flow\Scope("singleton")
  */
 class Factory{
+	
 	/**
 	 * @var \TYPO3\Flow\Object\ObjectManagerInterface
 	 * @Flow\Inject
@@ -31,6 +32,12 @@ class Factory{
 	 * NodeName of Headline 
 	 */
 	const HEADLINE = 'TYPO3.Neos.NodeTypes:Headline';
+
+	/**
+	 * NodeName of Text 
+	 */
+	const TEXT = 'TYPO3.Neos.NodeTypes:Text';
+
 
 	/**
 	 * NodeName of Page

@@ -29,7 +29,7 @@ class TwitterFactory extends Factory{
 	 * @return Rahul\SocialConnect\Domain\Override/TwOverride
 	 */
 	public function create($nodeType){
-		if($nodeType == self::HEADLINE)
+		if($nodeType == self::HEADLINE || $nodeType == self::TEXT)
 			return new \Rahul\SocialConnect\Domain\Override\TwHeadlineOverride($this->node);
 		else
 			return new \Rahul\SocialConnect\Domain\Override\TwOverride($this->node);

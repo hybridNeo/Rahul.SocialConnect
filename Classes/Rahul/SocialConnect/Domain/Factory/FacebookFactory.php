@@ -31,7 +31,7 @@ class FacebookFactory extends Factory{
 	public function create($nodeType){
 		if($nodeType == self::HEADLINE)
 			return new \Rahul\SocialConnect\Domain\Override\FbHeadlineOverride($this->node);
-		elseif($nodeType == self::PAGE)
+		elseif($nodeType == self::PAGE || $nodeType == self::TEXT)
 			return new \Rahul\SocialConnect\Domain\Override\FbPageOverride($this->node);
 		else
 			return new \Rahul\SocialConnect\Domain\Override\FbOverride($this->node);
