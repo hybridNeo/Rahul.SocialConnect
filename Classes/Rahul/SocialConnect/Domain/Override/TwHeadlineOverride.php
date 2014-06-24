@@ -84,11 +84,10 @@ class TwHeadlineOverride extends TwOverride{
 		$link = $this->getLink();
 		$content = $contentData->getFullLabel();
 		$content = trim($content,'\t\n');	
-		if((strlen($content)+strlen($link)-1)>self::MAX_COUNT){
-			$len = self::MAX_COUNT - strlen($link) - 3;
-			$content = substr($content,0,$len).'..';
-
-		}
+			if((strlen($content)+strlen($link)-1)>self::MAX_COUNT){
+				$len = self::MAX_COUNT - strlen($link) - 3;		
+				$content = substr($content,0,$len).'..';
+			}
         $this->tweet = $content.' '.$link;
 		return $this->tweet;
 	}
