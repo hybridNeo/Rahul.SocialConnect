@@ -2,7 +2,9 @@
 A multi Channel Social Connector for TYPO3-Neos.Project for Google Summer Of Code .
 ## Working now:
 * Facebook Publishing - Currently works for any NodeType.Depending on the NodeType Override can be wrriten.Currently Page/Headline/Text are supported.
+* Twitter Publishing - Twitter Publishing Works and provides a link to the site along with the the tweet.
 
+# Facebook:
 ## Setup:
 * Clone the Repo
 * Add "facebook/php-sdk-v4" : "4.0.*" in your composer.json file and run composer update
@@ -36,3 +38,5 @@ A multi Channel Social Connector for TYPO3-Neos.Project for Google Summer Of Cod
 * Grab the access token for your page and check if it does not expire [Debug token](https://developers.facebook.com/tools/debug)
 * Grab the permanent token and paste in the Settings.yaml of this Package,along with app id and app secret,set the user to 'page id'.
 
+#Twitter:
+## Tutorial coming soon.
