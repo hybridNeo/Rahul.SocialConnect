@@ -6,7 +6,6 @@ A multi Channel Social Connector for TYPO3-Neos.Project for Google Summer Of Cod
 
 # Facebook:
 ## Setup:
-* Clone the Repo
 * Add "facebook/php-sdk-v4" : "4.0.*" in your composer.json file and run composer update
 * Replace APP ID and access token's with your access tokens
 * Select Channel to Facebook in inspector of Node to enable Facebook Connect.
@@ -39,4 +38,14 @@ A multi Channel Social Connector for TYPO3-Neos.Project for Google Summer Of Cod
 * Grab the permanent token and paste in the Settings.yaml of this Package,along with app id and app secret,set the user to 'page id'.
 
 #Twitter:
-## Tutorial coming soon.
+## Setup:
+* make sure you have  "jublonet/codebird-php": "dev-develop" in your composer.json and the package is installed in your libraries folder.
+* replace the below details in your configuration.yaml file .
+* select twitter in your inspector to automatically post to twitter
+
+### Twitter Dev account and Access token:
+*  Go [here](https://dev.twitter.com/apps) and sign in with your account.The account you are posting with.
+*  Create a new Twitter Application.
+*  Set the permissions to read and write.If you have any troubling relating to account verification.just write to Twitter suppoer to grant you r/w permissions.
+*  create access token from the API keys page.
+*  Grab all the information and replace them in the Twitter section of the Settings.yaml
