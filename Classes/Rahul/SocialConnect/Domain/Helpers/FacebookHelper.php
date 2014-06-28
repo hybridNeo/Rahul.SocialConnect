@@ -102,18 +102,22 @@ class FacebookHelper{
 	 * @api
 	 */
 	public function post($node){
+		$this->log('start \n');
 		$this->getParams($node);
+		
      	FacebookSession::setDefaultApplication( $this->settings['facebook']['appid'],$this->settings['facebook']['secret'] );
      	$session = new FacebookSession($this->settings['facebook']['token']);	
-     	try {
+     	$this->log('session created');
+     	try {	
 				$session->validate();
 			} catch (FacebookRequestException $ex) {
 			  // Session not valid, Graph API returned an exception with the reason.
-			    echo $ex->getMessage();
+			    $this->log($ex->getMessage());
 			} catch (\Exception $ex) {
 			  // Graph API returned info, but it may mismatch the current app or have expired.
-				echo $ex->getMessage();
-			}		
+				$this->log($ex->getMessage());
+			}
+			
 		if($session) {
 			  try {
 				    $response = (new FacebookRequest(
@@ -136,6 +140,16 @@ class FacebookHelper{
 		
 	}
 
+	/**
+	 * Function to log
+	 * @param string
+	 * @return void
+	 */
+	public function log($in){
+		$fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","a+");
+        fwrite($fp,$in.PHP_EOL);
+        fclose($fp);
+	}
 
 
 }

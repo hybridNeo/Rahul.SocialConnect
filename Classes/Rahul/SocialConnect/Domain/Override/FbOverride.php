@@ -13,6 +13,7 @@ namespace Rahul\SocialConnect\Domain\Override;
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
+use TYPO3\Eel\FlowQuery\FlowQuery;
 
 /**
  * Default Override class for Facebook Post Parameters
@@ -148,7 +149,9 @@ class FbOverride{
      * @return NodeInterface
      */
  	public function textFinder($node,$grammar){
-	    if($node->hasChildNodes($grammar)){
+	   /* 
+		//old function written in PHP use it if FlowQuery fails/unsupported
+	   if($node->hasChildNodes($grammar)){
 	      $kids = $node->getChildNodes($grammar);
 	      return $kids[0];
 	    }
@@ -169,7 +172,10 @@ class FbOverride{
 	              return $kid;
 	            }
 	      }
-	    return null;
+	    return null;*/
+	    $q = new FlowQuery(array($node));
+    	$element = $q->find('[instanceof '.$grammar.']')->get(0);
+     	return $element;
 	 }
 
 

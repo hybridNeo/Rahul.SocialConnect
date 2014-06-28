@@ -59,12 +59,14 @@ class FbPageOverride extends FbOverride{
 	 * @return string
 	 */
 	public function getContent(){
-		$this->content = null;
+		/*$this->content = null;
 		if($this->contentCollection->hasChildNodes(self::HEADLINE)){
 			$textNodes = $this->contentCollection->getChildNodes(self::HEADLINE);
 			$text = $textNodes[0]->getNodeData()->getFullLabel();
 			$this->content = $text;
-		}
+		}*/
+		$textNode = $this->textFinder($this->node,self::HEADLINE);
+		$this->content = $textNode->getNodeData()->getFullLabel();
 		return $this->content;
 	}
 
@@ -103,7 +105,8 @@ class FbPageOverride extends FbOverride{
 	 * @return string
 	 */
 	public function getLink(){
-		$this->link = $this->link.$this->basePath($this->node).'.html';
+		if($this->basePath($this->node) != null)
+			$this->link = $this->link.$this->basePath($this->node).'.html';
 		return $this->link;
 	}
 
@@ -114,16 +117,13 @@ class FbPageOverride extends FbOverride{
 	 * @return string
 	 */
 	public function getCaption(){
-		$this->caption = null;
-		$content = null;
 		$foo = $this->node;
-		while($foo->getParent() != null && $foo->getParent()->getNodeType()->getName() == self::PAGE){
-			$foo = $foo->getParent();
-		}
 		$textNode = $this->textFinder($foo,self::TEXT);
 		$this->caption = $textNode->getNodeData()->getFullLabel();
 		return $this->caption;
 	}
+
+	
 }
 
 

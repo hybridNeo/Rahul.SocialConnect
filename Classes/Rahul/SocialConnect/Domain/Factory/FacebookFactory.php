@@ -35,8 +35,7 @@ class FacebookFactory extends Factory{
 			return new \Rahul\SocialConnect\Domain\Override\FbPageOverride($this->node);
 		else
 			return new \Rahul\SocialConnect\Domain\Override\FbOverride($this->node);
-	
-	}
+		}
 }
 
 
