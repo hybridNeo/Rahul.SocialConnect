@@ -46,26 +46,11 @@ class Notification{
       { 
         $fb = new \Rahul\SocialConnect\Domain\Helpers\FacebookHelper();
         $fb->post($node);
-        //ignore after
-        /*$n = $this->textFinder($node,'TYPO3.Neos.NodeTypes:Text');
-        if($n==null){
-          $text = 'halelujah';
-        } 
-        else{
-          $text = $n->getNodeData()->getFullLabel();
-        }
-        $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
-        fwrite($fp,$text);
-        fclose($fp);
-        */
       }
       if($twitter == 1){
         $tw = new \Rahul\SocialConnect\Domain\Helpers\TwitterHelper($node);
         $tw->post();
-        $text = 'paranoid';
-        $fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","wb");
-        fwrite($fp,$text);
-        fclose($fp);
+        
       }
 
 
