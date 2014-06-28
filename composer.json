@@ -4,7 +4,7 @@
     "description": "A Social media multi channel connector for TYPO3 Neos",
     "license": "GPL-3.0+",
     "require-dev": {
-        "facebook/php-sdk-v4" : "4.0.*",
+        "facebook/php-sdk-v4" : "4.0.1",
         "jublonet/codebird-php": "dev-develop"
     },
     
