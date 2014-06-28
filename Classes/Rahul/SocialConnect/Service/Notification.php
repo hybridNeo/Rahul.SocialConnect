@@ -11,9 +11,7 @@
  *                                                                        */
   use TYPO3\Flow\Annotations as Flow;
   use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
-  use TYPO3\TYPO3CR\Domain\Model\Node;
-  use Codebird\Codebird;
-    
+  use TYPO3\TYPO3CR\Domain\Model\Node;    
 /**
  * Notification Class for SocialConnect It holds the slot and helpers which listens to the publishing process.
  * @Flow\Scope("singleton")
