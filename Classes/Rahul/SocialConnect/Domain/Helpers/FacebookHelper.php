@@ -17,6 +17,8 @@ use Facebook\FacebookRequestException;
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
+use Rahul\SocialConnect\Logging\SocialLogger;
+
 
 /**
  * Facebook Helper class to post on Facebook
@@ -102,20 +104,17 @@ class FacebookHelper{
 	 * @api
 	 */
 	public function post($node){
-		$this->log('start \n');
 		$this->getParams($node);
-		
      	FacebookSession::setDefaultApplication( $this->settings['facebook']['appid'],$this->settings['facebook']['secret'] );
      	$session = new FacebookSession($this->settings['facebook']['token']);	
-     	$this->log('session created');
      	try {	
 				$session->validate();
 			} catch (FacebookRequestException $ex) {
 			  // Session not valid, Graph API returned an exception with the reason.
-			    $this->log($ex->getMessage());
+			    SocialLogger::facebookLog($ex->getMessage());
 			} catch (\Exception $ex) {
 			  // Graph API returned info, but it may mismatch the current app or have expired.
-				$this->log($ex->getMessage());
+				SocialLogger::facebookLog($ex->getMessage());
 			}
 			
 		if($session) {
@@ -130,26 +129,16 @@ class FacebookHelper{
 					'message' => $this->content
 			      )
 			    ))->execute()->getGraphObject();
-			   		 echo "Posted with id: " . $response->getProperty('id');
+			   		 SocialLogger::facebookLog("Posted with id: " . $response->getProperty('id'));
 			   } catch(FacebookRequestException $e) {
-			   		 echo "Exception occured, code: " . $e->getCode();
-			   		 echo " with message: " . $e->getMessage();
+			   		 SocialLogger::facebookLog("Exception occured, code: " . $e->getCode()." with message: " . $e->getMessage());
 			    }   
 
 			}
 		
 	}
 
-	/**
-	 * Function to log
-	 * @param string
-	 * @return void
-	 */
-	public function log($in){
-		$fp = fopen($_SERVER['DOCUMENT_ROOT']."/file.txt","a+");
-        fwrite($fp,$in.PHP_EOL);
-        fclose($fp);
-	}
+
 
 
 }

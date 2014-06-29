@@ -15,6 +15,8 @@ use TYPO3\Flow\Annotations as Flow;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
 use Codebird\Codebird;
+use Rahul\SocialConnect\Logging\SocialLogger;
+
 
 /**
  * Twitter Helper class to post on Twitter
@@ -75,7 +77,12 @@ class TwitterHelper{
         $params = array(
           'status' => $ovr->getContent()
         );
-        $reply = $cb->statuses_update($params);
+        try{
+        	$reply = $cb->statuses_update($params);
+        	SocialLogger::twitterLog('Posted Successfully to Twitter');
+		} catch (\Exception $ex) {
+				SocialLogger::twitterLog($ex->getMessage());
+		}
 	}
 
 }

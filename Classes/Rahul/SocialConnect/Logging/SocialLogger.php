@@ -1,5 +1,5 @@
 <?php
-namespace Rahul\SocialConnect\Domain\Factory;
+namespace Rahul\SocialConnect\Logging;
 /*                                                                        *
  * This script belongs to the TYPO3 Flow package "Rahul.SocialConnect".               *
  *                                                                        *
@@ -14,29 +14,46 @@ use TYPO3\Flow\Annotations as Flow;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
 
-
 /**
- * Facebook Factory for instantiating the right Object type
- * Depending on the NodeType  create function returns a specific object
+ * A log class to log all the social media activity
  * @Flow\Scope("singleton")
  */
-class FacebookFactory extends Factory{
-	
-	/**
-	 * Instantiates an object of the facebook override class based on the specified nodetype
-	 * deafaults to FbOverride
+class SocialLogger{
+    const DEVELOPEMENT = true;
+    /**
+	 * Function to log Facebook activity
 	 * @param string
-	 * @return Rahul\SocialConnect\Domain\Override/FbOverride
+	 * @return void
 	 */
-	public function create($nodeType){
-		if($nodeType == self::HEADLINE || $nodeType == self::TEXT)
-			return new \Rahul\SocialConnect\Domain\Override\FbHeadlineOverride($this->node);
-		elseif($nodeType == self::PAGE )
-			return new \Rahul\SocialConnect\Domain\Override\FbPageOverride($this->node);
-		else
-			return new \Rahul\SocialConnect\Domain\Override\FbOverride($this->node);
-		}
+	public static function facebookLog($in){
+		if(self::DEVELOPEMENT == true){
+			$fp = fopen($_SERVER['DOCUMENT_ROOT']."/facebook.txt","a+");
+			$today = date("Y-m-d H:i:s");          
+        	fwrite($fp,$today.'  '.$in.PHP_EOL);
+     	   	fclose($fp);
+    	}
+	}
+
+	/**
+	 * Function to log Twitter activity
+	 * @param string
+	 * @return void
+	 */
+	public static function twitterLog($in){
+		if(self::DEVELOPEMENT == true){
+			$fp = fopen($_SERVER['DOCUMENT_ROOT']."/twitter.txt","a+");
+			$today = date("Y-m-d H:i:s");          
+        	fwrite($fp,$today.'  '.$in.PHP_EOL);
+     	   	fclose($fp);
+    	}
+    }
 }
+
+
+
+
+
+
 
 
 ?>
