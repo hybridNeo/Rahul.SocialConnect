@@ -15,40 +15,32 @@ use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
 
 /**
- * Default Override class for Twitter Post Parameters
- * Non Defined NodeTypes Default to this
+ * The specific override class for a Page node type
+ *
  * @Flow\Scope("prototype")
  */
-class TwHeadlineOverride extends TwOverride{
-
+class TwPageOverride extends TwOverride{
 
 	/**
-	 * This the Page Node which the headline is contained in 
-	 * @var NodeInterface
+	 * Headline nodename
 	 */
-	protected $parent;
+	const HEADLINE = 'TYPO3.Neos.NodeTypes:Headline';
 
 	/**
-	 * @param NodeInterface $node 
-	 * Constructor
-	 * @return void
+	 * Text nodename
 	 */
-	public function __construct($node){
-		$this->node = $node;
-		$this->parent = $node;
-		while($this->parent->getNodeType()->getName() != 'TYPO3.Neos.NodeTypes:Page')
-			$this->parent = $this->parent->getParent();
-	}
+	const TEXT = 'TYPO3.Neos.NodeTypes:Text';
 
-	
 	/**
-	 * Returns the content label
+	 * Returns the content for the post
 	 * @return string
 	 */
 	public function getContent(){
-		$contentData =$this->node->getNodeData();
+		$textNode = $this->textFinder($this->node,self::HEADLINE);
+		if($textNode == null)
+			$textNode = $this->textFinder($this->node,self::TEXT);
+		$content = $textNode->getNodeData()->getFullLabel();
 		$link = $this->getLink();
-		$content = $contentData->getFullLabel();
 		$content = trim($content,'\t\n');	
 			if((strlen($content)+strlen($link)-1)>self::MAX_COUNT){
 				$len = self::MAX_COUNT - strlen($link) - 3;		
@@ -65,7 +57,7 @@ class TwHeadlineOverride extends TwOverride{
    	 * @return base path
   	 */
   	public function basePath($node){
-   		$page = $this->parent;
+   		$page = $node;
     	while($node->getParent() != null){
     	    $node= $node->getParent();
      	}
@@ -86,6 +78,12 @@ class TwHeadlineOverride extends TwOverride{
 			$link = $link.$this->basePath($this->node).'.html';
 		return $link;
 	}
+
+
+	
 }
+
+
+
 
 ?>

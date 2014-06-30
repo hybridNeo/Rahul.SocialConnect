@@ -13,6 +13,8 @@ namespace Rahul\SocialConnect\Domain\Override;
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
+use TYPO3\Eel\FlowQuery\FlowQuery;
+
 
 /**
  * Default Override class for Twitter Post Parameters
@@ -24,6 +26,11 @@ class TwOverride{
 	 * @var NodeInterface
 	 */
 	protected $node;
+
+    /**
+	 * Maximum Character count for tweets
+	 */
+	const MAX_COUNT = 140;
 
 	/**
  	 * @var string 
@@ -67,35 +74,39 @@ class TwOverride{
      * @return NodeInterface
      */
  	public function textFinder($node,$grammar){
-	    if($node->hasChildNodes($grammar)){
-	      $kids = $node->getChildNodes($grammar);
-	      return $kids[0];
-	    }
-	    if($node->getPrimaryChildNode()!=null){
-	      if($node->getPrimaryChildNode()->getNodeType()->getName() == $grammar)
-	        return $node->getPrimaryChildNode();
-	      $stud = $this->textFinder($node->getPrimaryChildNode(),$grammar);
-	      if($stud!=null){
-	        return $stud;
-	      }
-	    }
-	    if($node->hasChildNodes())
-	     { 
-	      $children = $node->getChildNodes();
-	      foreach ($children as $k) {
-	            $kid = $this->textFinder($k,$grammar);
-	            if($kid != null)
-	              return $kid;
-	            }
-	      }
-	    return null;
+	    $q = new FlowQuery(array($node));
+    	$element = $q->find('[instanceof '.$grammar.']')->get(0);
+     	return $element;
 	 }
 
+	/**
+   	 * Returns the address to the page
+     *
+     * @param NodeInterface $node
+   	 * @return base path
+  	 */
+  	public function basePath($node){
+   		$page = $this->parent;
+    	while($node->getParent() != null){
+    	    $node= $node->getParent();
+     	}
+     	$node = $node->getPrimaryChildNode()->getPrimaryChildNode();
+     	$nodePath = $node->getPath();
+     	$parentPath = $page->getPath();
+     	$nodePath = str_replace($nodePath,"",$parentPath);
+     	return $nodePath;
+    }
 
-
-
-
-
+    /**
+	 * Returns the link
+	 * @return string
+	 */
+	public function getLink(){
+		$link = $this->settings['twitter']['link'];
+		if($this->basePath($this->node) != null)
+			$link = $link.$this->basePath($this->node).'.html';
+		return $link;
+	}
 
 
 }
