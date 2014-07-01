@@ -75,10 +75,11 @@ class TwitterHelper{
 		$nodeType = $this->node->getNodeType()->getName();
 		$ovr =$factory->create($nodeType);
         $params = array(
-          'status' => $ovr->getContent()
+          'status' => $ovr->getContent(),
+          'media[]' => $_SERVER['DOCUMENT_ROOT'].'/tux.png'
         );
         try{
-        	$reply = $cb->statuses_update($params);
+        	$reply = $cb->statuses_updateWithMedia($params);
         	SocialLogger::twitterLog('Posted Successfully to Twitter');
 		} catch (\Exception $ex) {
 				SocialLogger::twitterLog($ex->getMessage());
