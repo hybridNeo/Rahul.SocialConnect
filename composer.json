@@ -3,6 +3,10 @@
     "type": "typo3-flow-package",
     "description": "A Social media multi channel connector for TYPO3 Neos",
     "license": "GPL-3.0+",
+    "require": {
+        "typo3/neos": "dev-master",
+        "typo3/neos-nodetypes": "dev-master"
+    },
     "require-dev": {
         "facebook/php-sdk-v4" : "4.0.1",
         "jublonet/codebird-php": "dev-develop"
