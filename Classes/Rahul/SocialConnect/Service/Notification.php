@@ -11,7 +11,10 @@
  *                                                                        */
   use TYPO3\Flow\Annotations as Flow;
   use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
-  use TYPO3\TYPO3CR\Domain\Model\Node;    
+  use TYPO3\TYPO3CR\Domain\Model\Node;
+  use Rahul\SocialConnect\Logging\SocialLogger;
+  use TYPO3\Media\Domain\Model\ImageVariant;    
+ 
 /**
  * Notification Class for SocialConnect It holds the slot and helpers which listens to the publishing process.
  * @Flow\Scope("singleton")
@@ -50,8 +53,14 @@ class Notification{
         $tw->post();
         
       }
-
-
+      /*
+      $img = $node->getProperty('image');
+      $res = $img->getResource();
+      $name = 'test';
+      $pub = new \TYPO3\Flow\Resource\Publishing\ResourcePublisher();
+      $name = $pub->getPersistentResourceWebUri($res);
+      SocialLogger::twitterLog($name);
+      */
   }
 
 

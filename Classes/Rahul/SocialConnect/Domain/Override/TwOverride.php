@@ -14,6 +14,7 @@ use TYPO3\Flow\Annotations as Flow;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
 use TYPO3\Eel\FlowQuery\FlowQuery;
+use TYPO3\Flow\Resource\Publishing\ResourcePublisher;
 
 
 /**
@@ -33,9 +34,30 @@ class TwOverride{
 	const MAX_COUNT = 140;
 
 	/**
+	 * Headline nodename
+	 */
+	const HEADLINE = 'TYPO3.Neos.NodeTypes:Headline';
+
+	/**
+	 * Headline nodename
+	 */
+	const IMAGE = 'TYPO3.Neos.NodeTypes:Image';
+
+	/**
+	 * Text nodename
+	 */
+	const TEXT = 'TYPO3.Neos.NodeTypes:Text';
+	
+	/**
  	 * @var string 
  	 */	
 	protected $tweet;
+
+	/**
+ 	 * @var string 
+ 	 */	
+	protected $image;
+
 
 	/**
 	 * @param NodeInterface $node 
@@ -79,33 +101,22 @@ class TwOverride{
      	return $element;
 	 }
 
-	/**
-   	 * Returns the address to the page
-     *
-     * @param NodeInterface $node
-   	 * @return base path
-  	 */
-  	public function basePath($node){
-   		$page = $this->parent;
-    	while($node->getParent() != null){
-    	    $node= $node->getParent();
-     	}
-     	$node = $node->getPrimaryChildNode()->getPrimaryChildNode();
-     	$nodePath = $node->getPath();
-     	$parentPath = $page->getPath();
-     	$nodePath = str_replace($nodePath,"",$parentPath);
-     	return $nodePath;
-    }
-
-    /**
-	 * Returns the link
+	/**s
+	 * Finds an Image to represent the post returns Web friendly URL
 	 * @return string
 	 */
-	public function getLink(){
-		$link = $this->settings['twitter']['link'];
-		if($this->basePath($this->node) != null)
-			$link = $link.$this->basePath($this->node).'.html';
-		return $link;
+	public function getImage(){
+		$node = $this->textFinder($this->node,self::IMAGE);
+		if($node != null){
+			$img = $node->getProperty('image');
+      		$res = $img->getResource();
+     		$pub = new \TYPO3\Flow\Resource\Publishing\ResourcePublisher();
+      		$this->image = $pub->getPersistentResourceWebUri($res);
+      		return $this->image;
+		}
+		else{
+			return $this->settings['twitter']['image'];
+		}
 	}
 
 

@@ -22,16 +22,6 @@ use TYPO3\TYPO3CR\Domain\Model\Node;
 class TwPageOverride extends TwOverride{
 
 	/**
-	 * Headline nodename
-	 */
-	const HEADLINE = 'TYPO3.Neos.NodeTypes:Headline';
-
-	/**
-	 * Text nodename
-	 */
-	const TEXT = 'TYPO3.Neos.NodeTypes:Text';
-
-	/**
 	 * Returns the content for the post
 	 * @return string
 	 */

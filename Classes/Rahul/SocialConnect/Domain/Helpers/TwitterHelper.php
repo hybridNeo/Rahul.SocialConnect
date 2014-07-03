@@ -74,18 +74,19 @@ class TwitterHelper{
         $factory = new \Rahul\SocialConnect\Domain\Factory\TwitterFactory($this->node);
 		$nodeType = $this->node->getNodeType()->getName();
 		$ovr =$factory->create($nodeType);
-        $params = array(
+	    $params = array(
           'status' => $ovr->getContent(),
           'media[]' => $_SERVER['DOCUMENT_ROOT'].'/tux.png'
         );
         try{
-        	$reply = $cb->statuses_updateWithMedia($params);
-        	SocialLogger::twitterLog('Posted Successfully to Twitter');
+         $reply = $cb->statuses_updateWithMedia($params);
+         SocialLogger::twitterLog('Posted Successfully to Twitter');
 		} catch (\Exception $ex) {
-				SocialLogger::twitterLog($ex->getMessage());
+		SocialLogger::twitterLog($ex->getMessage());
 		}
 	}
 
 }
 
 ?>
+
