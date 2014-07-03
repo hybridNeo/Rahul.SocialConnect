@@ -12,7 +12,9 @@ Rahul:
       ##Get the access token at https://developers.facebook.com/tools/explorer/?method=GET&path=me%3Ffields%3Did%2Cname
       token: 'xxxxxxxxxxxxx'
     twitter: #visit https://apps.twitter.com/app/<your app id >/keys
-      apiKey: 'Your API key here' # API Key 
+      apiKey: 'Your API key here' # API Key
       apiSecret: 'Your API secret here ' #API Secret
-      token: 'Your access token here ' #Access Token 
+      token: 'Your access token here ' #Access Token
       tokenSecret: 'Your Access token secret here ' #Acess token secret
+      link: 'neos.demo' #The base address to your website
+      image: '' #URL to the image
