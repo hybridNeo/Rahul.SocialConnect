@@ -116,7 +116,7 @@ class FacebookHelper{
 			  // Graph API returned info, but it may mismatch the current app or have expired.
 				SocialLogger::facebookLog($ex->getMessage());
 			}
-			
+		 SocialLogger::facebookLog($this->image);
 		if($session) {
 			  try {
 				    $response = (new FacebookRequest(
@@ -130,6 +130,7 @@ class FacebookHelper{
 			      )
 			    ))->execute()->getGraphObject();
 			   		 SocialLogger::facebookLog("Posted with id: " . $response->getProperty('id'));
+
 			   } catch(FacebookRequestException $e) {
 			   		 SocialLogger::facebookLog("Exception occured, code: " . $e->getCode()." with message: " . $e->getMessage());
 			    }   

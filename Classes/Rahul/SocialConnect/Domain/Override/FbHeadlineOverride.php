@@ -99,17 +99,6 @@ class FbHeadlineOverride extends FbOverride{
 	}
 
 
-	/**
-	 * Returns the Image
-	 * @return string
-	 */
-	public function getImage(){
-		$this->image = null;
-		return $this->image;
-	}
-
-
-
 
 
 }

@@ -101,7 +101,7 @@ class TwOverride{
      	return $element;
 	 }
 
-	/**s
+	/**
 	 * Finds an Image to represent the post returns Web friendly URL
 	 * @return string
 	 */
@@ -115,7 +115,7 @@ class TwOverride{
       		return $this->image;
 		}
 		else{
-			return $this->settings['twitter']['image'];
+			return null;
 		}
 	}
 

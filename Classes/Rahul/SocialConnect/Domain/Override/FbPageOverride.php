@@ -27,20 +27,7 @@ class FbPageOverride extends FbOverride{
 	 */
 	protected $contentCollection;
 
-	/**
-	 * Headline nodename
-	 */
-	const HEADLINE = 'TYPO3.Neos.NodeTypes:Headline';
-
-	/**
-	 * Text nodename
-	 */
-	const TEXT = 'TYPO3.Neos.NodeTypes:Text';
-
-	/**
-	 * Page nodename
-	 */
-	const PAGE = 'TYPO3.Neos.NodeTypes:Page';
+	
 
 	/**
 	 * @param NodeInterface $node 

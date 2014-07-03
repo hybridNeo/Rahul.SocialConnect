@@ -74,6 +74,8 @@ class TwitterHelper{
         $factory = new \Rahul\SocialConnect\Domain\Factory\TwitterFactory($this->node);
 		$nodeType = $this->node->getNodeType()->getName();
 		$ovr =$factory->create($nodeType);
+		$img = $ovr->getImage();
+		SocialLogger::twitterLog($img);
 	    $params = array(
           'status' => $ovr->getContent(),
           'media[]' => $_SERVER['DOCUMENT_ROOT'].'/tux.png'

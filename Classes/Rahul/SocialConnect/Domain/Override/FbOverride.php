@@ -14,6 +14,7 @@ use TYPO3\Flow\Annotations as Flow;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
 use TYPO3\Eel\FlowQuery\FlowQuery;
+use TYPO3\Flow\Resource\Publishing\ResourcePublisher;
 
 /**
  * Default Override class for Facebook Post Parameters
@@ -57,7 +58,26 @@ class FbOverride{
  	 */	
 	protected $description;
 
-	
+	/**
+	 * Headline nodename
+	 */
+	const HEADLINE = 'TYPO3.Neos.NodeTypes:Headline';
+
+	/**
+	 * Text nodename
+	 */
+	const TEXT = 'TYPO3.Neos.NodeTypes:Text';
+
+	/**
+	 * Page nodename
+	 */
+	const PAGE = 'TYPO3.Neos.NodeTypes:Page';
+
+	/**
+	 * Page nodename
+	 */
+	const IMAGE = 'TYPO3.Neos.NodeTypes:Image';
+
 	/**
  	 * Inject settings
  	 *
@@ -117,10 +137,17 @@ class FbOverride{
 	}
 
 	/**
-	 * Returns the image
+	 * Finds an Image to represent the post returns Web friendly URL
 	 * @return string
 	 */
 	public function getImage(){
+		$node = $this->textFinder($this->node,self::IMAGE);
+		if($node != null){
+			$img = $node->getProperty('image');
+      		$res = $img->getResource();
+     		$pub = new \TYPO3\Flow\Resource\Publishing\ResourcePublisher();
+      		$this->image = $pub->getPersistentResourceWebUri($res);
+		}
 		return $this->image;
 	}
 
