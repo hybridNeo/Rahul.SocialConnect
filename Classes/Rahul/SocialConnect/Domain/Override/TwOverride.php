@@ -107,6 +107,8 @@ class TwOverride{
 	 */
 	public function getImage(){
 		$node = $this->textFinder($this->node,self::IMAGE);
+		if($this->settings['twitter']['image'] == '')
+			return null;
 		if($node != null){
 			$img = $node->getProperty('image');
       		$res = $img->getResource();

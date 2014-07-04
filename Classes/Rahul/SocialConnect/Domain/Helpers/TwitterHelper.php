@@ -76,16 +76,30 @@ class TwitterHelper{
 		$ovr =$factory->create($nodeType);
 		$img = $ovr->getImage();
 		SocialLogger::twitterLog($img);
-	    $params = array(
-          'status' => $ovr->getContent(),
-          'media[]' => $_SERVER['DOCUMENT_ROOT'].'/tux.png'
-        );
-        try{
-         $reply = $cb->statuses_updateWithMedia($params);
-         SocialLogger::twitterLog('Posted Successfully to Twitter');
-		} catch (\Exception $ex) {
-		SocialLogger::twitterLog($ex->getMessage());
+		if($img == null){
+			$params = array(
+    	      'status' => $ovr->getContent(),
+        	);
+        	try{
+         		$reply = $cb->statuses_update($params);
+         		SocialLogger::twitterLog('Posted Successfully to Twitter');
+			 } catch (\Exception $ex) {
+			SocialLogger::twitterLog($ex->getMessage());
+			}
 		}
+		else{
+			$params = array(
+    	      'status' => $ovr->getContent(),
+	          'media[]' => $_SERVER['DOCUMENT_ROOT'].'/tux.png'
+        	);
+        	try{
+         		$reply = $cb->statuses_updateWithMedia($params);
+         		SocialLogger::twitterLog('Posted Successfully to Twitter');
+			 } catch (\Exception $ex) {
+			SocialLogger::twitterLog($ex->getMessage());
+			}
+		}
+	    
 	}
 
 }
