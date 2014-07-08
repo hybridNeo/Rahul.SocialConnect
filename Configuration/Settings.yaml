@@ -18,3 +18,13 @@ Rahul:
       tokenSecret: 'Your Access token secret here ' #Acess token secret
       link: 'neos.demo' #The base address to your website
       image: '' #URL to the image
+TYPO3:
+  Neos:
+    userInterface:
+      editPreviewModes:
+        googleSearch:
+          isEditingMode: FALSE
+          isPreviewMode: TRUE
+          typoScriptRenderingPath: 'facebookPreview'
+          title: 'Facebook Preview'
+          position: 100
