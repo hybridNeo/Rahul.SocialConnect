@@ -1,0 +1,6 @@
+facebookPreview < page
+facebookPreview {
+	body {
+    	templatePath = 'resource://Rahul.SocialConnect/Private/Templates/Preview/FacebookPreview.html'
+	}
+}
