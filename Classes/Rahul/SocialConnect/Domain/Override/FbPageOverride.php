@@ -27,8 +27,6 @@ class FbPageOverride extends FbOverride{
 	 */
 	protected $contentCollection;
 
-	
-
 	/**
 	 * @param NodeInterface $node 
 	 * Constructor
@@ -100,13 +98,15 @@ class FbPageOverride extends FbOverride{
 
 	/**
 	 * Returns the caption
-	 * Unstable:Fails with content Collection teaser
 	 * @return string
 	 */
 	public function getCaption(){
 		$foo = $this->node;
 		$textNode = $this->textFinder($foo,self::TEXT);
-		$this->caption = $textNode->getNodeData()->getFullLabel();
+		$caption = $textNode->getNodeData()->getFullLabel();
+		$caption = substr($caption,0,self::CAPTION_LIMIT-4);
+		$caption = $caption.'..';	
+		$this->caption = $caption;
 		return $this->caption;
 	}
 

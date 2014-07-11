@@ -78,6 +78,11 @@ class FbOverride{
 	 */
 	const IMAGE = 'TYPO3.Neos.NodeTypes:Image';
 
+	/*
+	 * Facebook's limit on caption
+	 */
+	const CAPTION_LIMIT = 1000;
+
 	/**
  	 * Inject settings
  	 *
