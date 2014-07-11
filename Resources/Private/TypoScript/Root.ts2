@@ -2,7 +2,7 @@ facebookPreview < page
 facebookPreview {
 	body {
     	templatePath = 'resource://Rahul.SocialConnect/Private/Templates/Preview/FacebookPreview.html'
-    	childNodes = ${q(node).find('main').children()}
+    	childNodes = ${q(node).find('TYPO3.Neos.NodeTypes:Text').get(0)}
 	}
 
 }

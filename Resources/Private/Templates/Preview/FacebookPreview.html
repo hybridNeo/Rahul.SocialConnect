@@ -11,7 +11,10 @@
       </div>
    </div>
    <div data-ft="{&quot;tn&quot;:&quot;K&quot;}" class="userContentWrapper aboveUnitContent">
-      <div class="_wk mbm"><span class="userContent">Download now available</span></div>
+      <div class="_wk mbm"><span class="userContent">
+                            <f:format.stripTags value="{headNode.properties.title}">
+                           
+                           </f:format.stripTags></span></div>
    </div>
    <div class="_5rny">
       <div class="_1xw clearfix">
@@ -24,7 +27,13 @@
                         <div id="u_c_1e" class="_4ysy">
                            <div dir="ltr" class="_1x_ fwb">{node.properties.title}</div>
                            <div class="fsm fwn fcg">
-                            {loaf}
+                           
+                            
+                            <f:format.stripTags value="{textNode.properties.text}">
+                           
+                           </f:format.stripTags>
+                            
+                           
                            </div>
                         </div>
                         <div id="u_c_3" dir="ltr" class="_1y1 _3-8x fsm fwn fcg">This is a test blog to test the SocialConnect feature for Neos</div>
