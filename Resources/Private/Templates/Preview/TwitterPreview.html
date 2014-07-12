@@ -1,0 +1,37 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<f:section name="body">
+
+
+<div class=
+"tweet permalink-tweet js-actionable-user js-actionable-tweet js-original-tweet my-tweet logged-in opened-tweet"
+data-associated-tweet-id="xxxxxxxxx" data-feedback-key=
+"xxxxxxxxxxxx" data-item-id="480612146523295744" data-name=
+"your account" data-screen-name="YourAccount" data-tweet-id=
+"xxxxxxxxxx" data-user-id="xx" data-you-block="false"
+data-you-follow="false">
+    <div class="content clearfix permalink-header">
+        <img alt="" class="avatar js-action-profile-avatar" src=
+        "https://abs.twimg.com/sticky/default_profile_images/default_profile_6_bigger.png">
+        <strong class="fullname js-action-profile-name show-popup-with-id">Your
+        Account</strong> <span>&rlm;</span><span class=
+        "username js-action-profile-name"><span style=
+        "text-decoration: line-through">@</span><b>yourAccount</b></span>
+        <small class="time"><a class=
+        "tweet-timestamp js-permalink js-nav js-tooltip" href=
+        "" title=
+        ""><span class="_timestamp js-short-timestamp"
+        data-long-form="true" data-time="1403421839" data-time-ms=
+        "mmdd">MMM DD</span></a></small>
+    </div>
+
+    <p class="js-tweet-text tweet-text"><f:format.stripTags value="{tweetNode.properties.title}">
+                           
+                  </f:format.stripTags> <a>shortened/linkto/thispage</a></p>
+
+    <div class="stream-item-footer context"></div>
+
+    <div class="permalink-footer client-and-actions">
+        <span class="metadata">HH:MM AM/PM - DD MMM YYYY</span>
+    </div>
+</div>
+</f:section>

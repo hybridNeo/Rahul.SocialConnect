@@ -10,3 +10,13 @@ facebookPreview {
   		
 	}
 }
+
+twitterPreview < page
+twitterPreview {
+	body {
+
+    	templatePath = 'resource://Rahul.SocialConnect/Private/Templates/Preview/TwitterPreview.html'
+    	node = ${node}
+    	tweetNode = ${q(node).find("[instanceof TYPO3.Neos.NodeTypes:Headline]").get(0)} 
+	}
+}
