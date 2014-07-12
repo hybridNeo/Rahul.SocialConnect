@@ -22,9 +22,15 @@ TYPO3:
   Neos:
     userInterface:
       editPreviewModes:
-        googleSearch:
+        facebookPreview:
           isEditingMode: FALSE
           isPreviewMode: TRUE
           typoScriptRenderingPath: 'facebookPreview'
           title: 'Facebook Preview'
+          position: 100
+        twitterPreview:
+          isEditingMode: FALSE
+          isPreviewMode: TRUE
+          typoScriptRenderingPath: 'twitterPreview'
+          title: 'Twitter Preview'
           position: 100
