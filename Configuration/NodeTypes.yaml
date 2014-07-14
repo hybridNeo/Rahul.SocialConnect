@@ -21,14 +21,6 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'advanced'
-    linkedIn:
-      type: boolean
-      defaultValue: ''
-      ui:
-        label: 'LinkedIn Publish'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'advanced'
 'TYPO3.Neos.NodeTypes:Headline':
   ui:
     inspector:
@@ -52,14 +44,6 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'advanced'
-    googlePlus:
-      type: boolean
-      defaultValue: ''
-      ui:
-        label: 'Google Plus Publish'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'advanced'
 'TYPO3.Neos.NodeTypes:Text':
   ui:
     inspector:
@@ -80,14 +64,6 @@
       defaultValue: ''
       ui:
         label: 'Twitter Publish'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'advanced'
-    googlePlus:
-      type: boolean
-      defaultValue: ''
-      ui:
-        label: 'Google Plus Publish'
         reloadIfChanged: TRUE
         inspector:
           group: 'advanced'
