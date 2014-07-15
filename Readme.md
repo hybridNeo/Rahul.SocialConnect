@@ -1,8 +1,12 @@
 # Social Connect.
 A multi Channel Social Connector for TYPO3-Neos.Project for Google Summer Of Code .
 ## Working now:
-* Facebook Publishing - Currently works for any NodeType.Depending on the NodeType Override can be wrriten.Currently Page/Headline/Text are supported.
+* Facebook Publishing - Currently works for any NodeType.Depending on the NodeType Override can be wrriten.Currently Page/Headline/Text are supported by Default.
 * Twitter Publishing - Twitter Publishing Works and provides a link to the site along with the the tweet.
+* Preview System to show what the post will look like once posted.
+
+## Setup for Preview:
+* Include the Root.ts2 of this package in the Root.ts2 of the site.
 
 # Facebook:
 ## Setup:
