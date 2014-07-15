@@ -90,7 +90,7 @@ class TwitterHelper{
 		else{
 			$params = array(
     	      'status' => $ovr->getContent(),
-	          'media[]' => $_SERVER['DOCUMENT_ROOT'].'/tux.png'
+	          'media[]' => $img
         	);
         	try{
          		$reply = $cb->statuses_updateWithMedia($params);

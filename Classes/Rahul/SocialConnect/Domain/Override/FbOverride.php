@@ -15,6 +15,7 @@ use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
 use TYPO3\Eel\FlowQuery\FlowQuery;
 use TYPO3\Flow\Resource\Publishing\ResourcePublisher;
+use Rahul\SocialConnect\Logging\SocialLogger;
 
 /**
  * Default Override class for Facebook Post Parameters
