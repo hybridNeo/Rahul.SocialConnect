@@ -5,6 +5,13 @@
         advanced:
           label: 'Social Connect'
   properties:
+    pageimage:
+      type: TYPO3\Media\Domain\Model\ImageVariant
+      ui:
+        label: 'Social Image'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
     facebook:
       type: boolean
       defaultValue: ''
