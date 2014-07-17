@@ -13,6 +13,8 @@ namespace Rahul\SocialConnect\Domain\Override;
 use TYPO3\Flow\Annotations as Flow;
 use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 use TYPO3\TYPO3CR\Domain\Model\Node;
+use Rahul\SocialConnect\Logging\SocialLogger;
+
 
 /**
  * The specific override class for a Page node type
@@ -109,6 +111,26 @@ class FbPageOverride extends FbOverride{
 		$this->caption = $caption;
 		return $this->caption;
 	}
+
+	/**
+	 * Finds an Image to represent the post returns Web friendly URL
+	 * @return string
+	 */
+	public function getImage(){
+		$img = $this->node->getProperty('pageimage');
+		if($img == null){
+			$node = $this->textFinder($this->node,self::IMAGE);
+			$img = $node->getProperty('image');
+		}
+		if($img != null )
+	    {  	
+	    	$res = $img->getResource();
+	     	$pub = new \TYPO3\Flow\Resource\Publishing\ResourcePublisher();
+	      	$this->image = $pub->getPersistentResourceWebUri($res);
+		}	
+		return $this->image;
+	}
+
 
 	
 }

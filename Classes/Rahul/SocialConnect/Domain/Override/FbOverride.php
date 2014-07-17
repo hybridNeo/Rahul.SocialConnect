@@ -147,6 +147,7 @@ class FbOverride{
 	 * @return string
 	 */
 	public function getImage(){
+		
 		$node = $this->textFinder($this->node,self::IMAGE);
 		if($node != null){
 			$img = $node->getProperty('image');
