@@ -70,7 +70,29 @@ class TwPageOverride extends TwOverride{
 	}
 
 
-	
+	/**
+	 * Finds an Image to represent the post returns Web friendly URL
+	 * @return string
+	 */
+	public function getImage(){
+		$node = $this->textFinder($this->node,self::IMAGE);
+		if($this->settings['twitter']['image'] == '')
+			return null;
+		$img = $this->node->getProperty('pageimage');
+		if($img == null){
+			$node = $this->textFinder($this->node,self::IMAGE);
+			$img = $node->getProperty('image');
+		}
+		if($img != null )
+	    {  	
+	    	$res = $img->getResource();
+	     	$pub = new \TYPO3\Flow\Resource\Publishing\ResourcePublisher();
+	      	$this->image = $pub->getPersistentResourceWebUri($res);
+		}	
+		else{
+			return null;
+		}
+	}
 }
 
 
