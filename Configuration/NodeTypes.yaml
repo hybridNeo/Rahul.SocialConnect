@@ -28,6 +28,36 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'advanced'
+'TYPO3.Neos:Document':
+  ui:
+    inspector:
+      groups:
+        advanced:
+          label: 'Social Connect'
+  properties:
+    pageimage:
+      type: TYPO3\Media\Domain\Model\ImageVariant
+      ui:
+        label: 'Social Image'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    facebook:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Facebook Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    twitter:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Twitter Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
 'TYPO3.Neos.NodeTypes:Headline':
   ui:
     inspector:
