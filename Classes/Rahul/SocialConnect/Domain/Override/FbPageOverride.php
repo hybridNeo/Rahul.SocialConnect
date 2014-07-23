@@ -123,8 +123,11 @@ class FbPageOverride extends FbOverride{
 		$img = $this->node->getProperty('pageimage');
 		if($img == null){
 			$node = $this->textFinder($this->node,self::IMAGE);
-			$img = $node->getProperty('image');
+			if($node !=null)
+				$img = $node->getProperty('image');
+			
 		}
+
 		if($img != null )
 	    {  	
 	    	$res = $img->getResource();
