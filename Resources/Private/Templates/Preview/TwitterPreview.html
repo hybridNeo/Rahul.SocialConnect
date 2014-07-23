@@ -1,7 +1,6 @@
 {namespace neos=TYPO3\Neos\ViewHelpers}
 <f:section name="body">
 
-
 <div class=
 "tweet permalink-tweet js-actionable-user js-actionable-tweet js-original-tweet my-tweet logged-in opened-tweet"
 data-associated-tweet-id="xxxxxxxxx" data-feedback-key=
@@ -24,17 +23,11 @@ data-you-follow="false">
         "mmdd">MMM DD</span></a></small>
     </div>
 
-    <p class="js-tweet-text tweet-text">
-                <f:if condition="{tweetNode}">
-                      <f:then>
-                            <f:format.stripTags value="{tweetNode.properties.title}">           
-                            </f:format.stripTags>
-                      </f:then>
-                      <f:else>
-                        
-                      </f:else>
-                    </f:if>
-                 <a>shortened/linkto/thispage</a></p>
+    <p class="js-tweet-text tweet-text"><f:if condition="{tweetNode}">
+    <f:then><f:format.stripTags value="{tweetNode.properties.title}"></f:format.stripTags><a> shortened/linkto/thispage</a></f:then>
+  <f:else>
+  </f:else>
+</f:if></p>
 
     <div class="stream-item-footer context"></div>
 
