@@ -24,9 +24,17 @@ data-you-follow="false">
         "mmdd">MMM DD</span></a></small>
     </div>
 
-    <p class="js-tweet-text tweet-text"><f:format.stripTags value="{tweetNode.properties.title}">
-                           
-                  </f:format.stripTags> <a>shortened/linkto/thispage</a></p>
+    <p class="js-tweet-text tweet-text">
+                <f:if condition="{tweetNode}">
+                      <f:then>
+                            <f:format.stripTags value="{tweetNode.properties.title}">           
+                            </f:format.stripTags>
+                      </f:then>
+                      <f:else>
+                        
+                      </f:else>
+                    </f:if>
+                 <a>shortened/linkto/thispage</a></p>
 
     <div class="stream-item-footer context"></div>
 

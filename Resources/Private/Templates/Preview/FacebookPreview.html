@@ -3,9 +3,19 @@
  
 		<div class="preview-content">
          <div class="_5pbx userContent" data-ft="{&quot;tn&quot;:&quot;K&quot;}">
-        <p> <f:format.stripTags value="{headNode.properties.title}">
-                           
-       </f:format.stripTags></span></p>
+        <p>
+         <f:if condition="{headNode}">
+    <f:then>
+    <f:format.stripTags value="{headNode.properties.title}">
+         </f:format.stripTags>
+    </f:then>
+    <f:else>
+        
+    </f:else>
+    </f:if>
+         
+         
+        </span></p>
     </div>
 
     <div class="_6m2 _1zpr clearfix _dcs _4_w4 _59ap mtm" data-ft=
@@ -21,15 +31,28 @@
 
         <div class="_6m3">
             <div class="mbs _6m6">
-                <a href=
-                >{node.properties.title}</a>
+                <f:if condition="{node}">
+                      <f:then>
+                         <a href=>{node.properties.title}</a>
+                      </f:then>
+                      <f:else>
+                        
+                      </f:else>
+                    </f:if>
+               
             </div>
 
             <div class="_6ma">
                 <div class="_6m7">
-                    <f:format.stripTags value="{TextNode.properties.text}">
-                           
-                  </f:format.stripTags></span>
+                    <f:if condition="{myvar}">
+                          <f:then>
+                            <f:format.stripTags value="{TextNode.properties.text}">      
+                            </f:format.stripTags></span>
+                          </f:then>
+                          <f:else>
+                            
+                          </f:else>
+                        </f:if>
                 </div>
 
                 <div class="_59tj _6lz _6mb ellipsis">
