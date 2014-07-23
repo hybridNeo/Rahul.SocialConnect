@@ -53,7 +53,10 @@ class FbPageOverride extends FbOverride{
 			$this->content = $text;
 		}*/
 		$textNode = $this->textFinder($this->node,self::HEADLINE);
-		$this->content = $textNode->getNodeData()->getFullLabel();
+		if($textNode!=null)
+			$this->content = $textNode->getNodeData()->getFullLabel();
+		else
+			$this->content = $this->getName();
 		return $this->content;
 	}
 
@@ -127,7 +130,7 @@ class FbPageOverride extends FbOverride{
 	    	$res = $img->getResource();
 	     	$pub = new \TYPO3\Flow\Resource\Publishing\ResourcePublisher();
 	      	$this->image = $pub->getPersistentResourceWebUri($res);
-		}	
+		}
 		return $this->image;
 	}
 

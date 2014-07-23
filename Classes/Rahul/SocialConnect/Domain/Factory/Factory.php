@@ -43,6 +43,11 @@ class Factory{
 	 * NodeName of Page
 	 */
 	const PAGE = 'TYPO3.Neos.NodeTypes:Page';
+
+	/**
+	 * NodeName of Document
+	 */
+	const DOCUMENT = 'TYPO3.Neos:Document';
 	
 	/**
 	 * @var NodeInterface
