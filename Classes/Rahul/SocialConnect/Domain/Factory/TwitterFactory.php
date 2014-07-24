@@ -31,7 +31,7 @@ class TwitterFactory extends Factory{
 	public function create($nodeType){
 		if($nodeType == self::HEADLINE || $nodeType == self::TEXT)
 			return new \Rahul\SocialConnect\Domain\Override\TwHeadlineOverride($this->node);
-		else if($nodeType == self::PAGE)
+		else if($nodeType == self::PAGE || $nodeType == self::DOCUMENT)
 			return new \Rahul\SocialConnect\Domain\Override\TwPageOverride($this->node);
 		else
 			return new \Rahul\SocialConnect\Domain\Override\TwOverride($this->node);
