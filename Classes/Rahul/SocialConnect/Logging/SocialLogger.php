@@ -27,7 +27,7 @@ class SocialLogger{
 	 */
 	public static function facebookLog($in){
 		if(self::DEVELOPEMENT == true){
-			$fp = fopen($_SERVER['DOCUMENT_ROOT']."/facebook.txt","a+");
+			$fp = fopen($_SERVER['DOCUMENT_ROOT']."/../Data/Logs/facebook.txt","a+");
 			$today = date("Y-m-d H:i:s");          
         	fwrite($fp,$today.'  '.$in.PHP_EOL);
      	   	fclose($fp);
@@ -41,7 +41,7 @@ class SocialLogger{
 	 */
 	public static function twitterLog($in){
 		if(self::DEVELOPEMENT == true){
-			$fp = fopen($_SERVER['DOCUMENT_ROOT']."/twitter.txt","a+");
+			$fp = fopen($_SERVER['DOCUMENT_ROOT']."/../Data/Logs/twitter.txt","a+");
 			$today = date("Y-m-d H:i:s");          
         	fwrite($fp,$today.'  '.$in.PHP_EOL);
      	   	fclose($fp);
