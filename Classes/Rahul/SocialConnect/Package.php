@@ -30,5 +30,6 @@ class Package extends BasePackage {
                 'TYPO3\Neos\Service\PublishingService', 'nodePublished',
                 'Rahul\SocialConnect\Service\Notification', 'sendSocialConnect',FALSE
         );
+      
 	}
 }
