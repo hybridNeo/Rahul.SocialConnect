@@ -20,24 +20,18 @@ use TYPO3\TYPO3CR\Domain\Model\Node;
  * Depending on the NodeType  create function returns a specific object
  * @Flow\Scope("singleton")
  */
-class TwitterFactory extends Factory{
+class BloggerFactory extends Factory{
 	
 	/**
-	 * Instantiates an object of the facebook override class based on the specified nodetype
+	 * Instantiates an object of the Blogger override class based on the specified nodetype
 	 * deafaults to TwOverride
 	 * @param string
 	 * @return Rahul\SocialConnect\Domain\Override/TwOverride
 	 */
-	public function create($nodeType){
-		if($nodeType == self::HEADLINE || $nodeType == self::TEXT)
-			return new \Rahul\SocialConnect\Domain\Override\TwHeadlineOverride($this->node);
-		else if($nodeType == self::PAGE || $nodeType == self::DOCUMENT)
-			return new \Rahul\SocialConnect\Domain\Override\TwPageOverride($this->node);
-		else
-			return new \Rahul\SocialConnect\Domain\Override\TwOverride($this->node);
+	public function create(){
+		return new \Rahul\SocialConnect\Domain\Override\BgOverride($this->node);
 	
 	}
 }
-
 
 ?>

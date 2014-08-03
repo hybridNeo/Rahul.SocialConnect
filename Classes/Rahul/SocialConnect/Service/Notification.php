@@ -17,7 +17,6 @@
   use TYPO3\TYPO3CR\Domain\Model\Node;
   use Rahul\SocialConnect\Logging\SocialLogger;
   use TYPO3\Media\Domain\Model\ImageVariant;    
-
   
 /**
  * Notification Class for SocialConnect It holds the slot and helpers which listens to the publishing process.
@@ -47,6 +46,12 @@ class Notification{
   public function sendSocialConnect(Node $node,$targetWorkspace = NULL){
       $face = $node->getProperty('facebook');
       $twitter = $node->getProperty('twitter');
+      $blogger = $node->getProperty('blogger');
+      if($blogger == 1)
+      {
+        $bg = new \Rahul\SocialConnect\Domain\Helpers\BloggerHelper($node);
+        $bg->post();
+      }
       if($face == 1)
       { 
         $fb = new \Rahul\SocialConnect\Domain\Helpers\FacebookHelper();
@@ -57,6 +62,7 @@ class Notification{
         $tw->post();
         
       }
+
       /*
       $img = $node->getProperty('image');
       $res = $img->getResource();

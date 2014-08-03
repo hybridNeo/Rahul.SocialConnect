@@ -5,6 +5,9 @@
         advanced:
           label: 'Social Connect'
   properties:
+    blogpost:
+      type: 'string'
+      defaultValue: ''
     pageimage:
       type: TYPO3\Media\Domain\Model\ImageVariant
       ui:
@@ -25,6 +28,14 @@
       defaultValue: ''
       ui:
         label: 'Twitter Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    blogger:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Blogger Publish'
         reloadIfChanged: TRUE
         inspector:
           group: 'advanced'
@@ -35,6 +46,9 @@
         advanced:
           label: 'Social Connect'
   properties:
+    blogpost:
+      type: 'string'
+      defaultValue: ''
     pageimage:
       type: TYPO3\Media\Domain\Model\ImageVariant
       ui:
@@ -55,6 +69,14 @@
       defaultValue: ''
       ui:
         label: 'Twitter Publish'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'advanced'
+    blogger:
+      type: boolean
+      defaultValue: ''
+      ui:
+        label: 'Blogger Publish'
         reloadIfChanged: TRUE
         inspector:
           group: 'advanced'

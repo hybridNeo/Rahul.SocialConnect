@@ -1,24 +1,33 @@
 Rahul:
   SocialConnect:
     facebook:
-      appid: 'xxxxxxxxxx' #Enter Your Facebook App ID.visit deveoper.facebook.com
-      secret: 'xxxxxxxxxxxxx' #app secret
+      appid: 'xxxxxxxxxxx' #Enter Your Facebook App ID.visit deveoper.facebook.com
+      secret: 'xxxxxxxxxxxxxxxxxxxxxxxx' #app secret
       user: 'xxxxxxxxxxxxxxxx' # the profile / page you want to post on
       link: 'neos.demo' #The link to your website
-      caption: 'some caption' #caption for the link
-      name: 'some name' #Title for the post
+      caption: 'some caption' #default caption for the link
+      name: 'Neos Demo' #Title for the post
       desc: 'This is a test blog to test the SocialConnect feature for Neos' #Description for the post
-      image: 'http://www.cms2cms.com/wp-content/uploads/2013/05/typo3logo.jpg' #URL to the image
+      image: 'http://www.cms2cms.com/wp-content/uploads/2013/05/typo3logo.jpg' #Default URL to the image
       ##Get the access token at https://developers.facebook.com/tools/explorer/?method=GET&path=me%3Ffields%3Did%2Cname
-      token: 'xxxxxxxxxxxxx'
+      token: 'xxxxxxxxxxx'
     twitter: #visit https://apps.twitter.com/app/<your app id >/keys
-      apiKey: 'Your API key here' # API Key
-      apiSecret: 'Your API secret here ' #API Secret
-      token: 'Your access token here ' #Access Token
-      tokenSecret: 'Your Access token secret here ' #Acess token secret
+      apiKey: 'xxxxxxxxxxxxxxxxxxxx' # API Key 
+      apiSecret: 'xxxxxxxxxxxxxxxx' #API Secret
+      token: 'xxxxxxxxx-xxxxxxxxxxxxx' #Access Token 
+      tokenSecret: 'xxxxxxxxxxxxxxxxxxxx' #Acess token secret
       link: 'neos.demo' #The base address to your website
       image: '' #URL to the image
+    blogger:
+      username: 'xxxxxxxxxxx' #google user name
+      password: 'zzzzzzzzzzzzzz' #google password
+      blogname: 'xxxxxxxxxxx' #name of the blog
+  
 TYPO3:
+  Flow:
+    object:
+      excludeClasses:
+        'zend.*': ['.*']
   Neos:
     userInterface:
       editPreviewModes:

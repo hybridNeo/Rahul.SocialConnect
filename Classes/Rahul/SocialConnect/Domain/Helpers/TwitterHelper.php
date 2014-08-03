@@ -92,7 +92,7 @@ class TwitterHelper{
         	);
         	
          	$reply = $cb->statuses_updateWithMedia($params);
-         	$this->statusAnalyze($reply->httpstatus);
+         	$this->statusAnalyze($reply->http_send_status(status));
 		}
 	}    
 	public function statusAnalyze($httpCode){

@@ -9,7 +9,7 @@
     },
     "require-dev": {
         "facebook/php-sdk-v4" : "4.0.1",
-        "jublonet/codebird-php": "dev-develop"
+        "jublonet/codebird-php": "2.5.0"
     },
     
    

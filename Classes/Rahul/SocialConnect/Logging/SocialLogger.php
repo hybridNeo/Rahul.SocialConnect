@@ -47,6 +47,20 @@ class SocialLogger{
      	   	fclose($fp);
     	}
     }
+
+    /**
+     * Function to log Blogger activity
+     * @param string
+     * @return void
+     */
+    public static function bloggerLog($in){
+    	if(self::DEVELOPEMENT == true){
+    		$fp = fopen($_SERVER['DOCUMENT_ROOT']."/../Data/Logs/blogger.txt","a+");
+			$today = date("Y-m-d H:i:s");          
+        	fwrite($fp,$today.'  '.$in.PHP_EOL);
+     	   	fclose($fp);
+    	}
+    }
 }
 
 
