@@ -9,7 +9,8 @@
     },
     "require-dev": {
         "facebook/php-sdk-v4" : "4.0.1",
-        "jublonet/codebird-php": "2.5.0"
+        "jublonet/codebird-php": "2.5.0",
+        "zend/gdata": "dev-master"
     },
     
    
