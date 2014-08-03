@@ -4,7 +4,7 @@ A multi Channel Social Connector for TYPO3-Neos.Project for Google Summer Of Cod
 * Facebook Publishing - Currently works for any NodeType.Depending on the NodeType Override can be wrriten.Currently Page/Headline/Text are supported by Default.
 * Twitter Publishing - Twitter Publishing Works and provides a link to the site along with the the tweet.
 * Preview System to show what the post will look like once posted.
-
+* Blogger posting for a simple Page/Document with a single headline and a Text field following it.feel free to create your own NodeTypes to support it better.
 ## Setup for Preview:
 * Include the Root.ts2 of this package in the Root.ts2 of the site.
 
@@ -54,3 +54,7 @@ A multi Channel Social Connector for TYPO3-Neos.Project for Google Summer Of Cod
 *  Set the permissions to read and write.If you have any troubling relating to account verification.just write to Twitter suppoer to grant you r/w permissions.
 *  create access token from the API keys page.
 *  Grab all the information and replace them in the Twitter section of the Settings.yaml
+
+#Blogger:
+## Setup:
+* Just add your username/password of your google account in the Config file to start blogging.
