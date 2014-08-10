@@ -119,7 +119,6 @@ class FacebookHelper{
 		 SocialLogger::facebookLog($this->image);
 		if($session) {
 			  try {
-			  		SocialLogger::facebookLog("comes here");
 				    $response = (new FacebookRequest(
 			    	$session, 'POST', '/'.$this->settings['facebook']['user'].'/feed', array(
 			        'link' => $this->link,
