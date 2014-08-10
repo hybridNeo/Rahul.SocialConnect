@@ -90,16 +90,35 @@ class TwOverride{
 	}
 
  	/**
-  	 * Find the first Text Node matching the grammar description
+  	 * Find the array of Text Nodes matching the grammar description
    	 * @param NodeInterface $node
      * @param string $grammar
      * @return NodeInterface
      */
  	public function textFinder($node,$grammar){
 	    $q = new FlowQuery(array($node));
-    	$element = $q->find('[instanceof '.$grammar.']')->get(0);
+    	$elements = $q->find('[instanceof '.$grammar.']');
+    	$element = $this->findBest($elements,$node,$grammar);
      	return $element;
 	 }
+	 
+	/**
+	 * find the best match
+	 * @param array $elements
+	 * @param NodeInterface node
+	 */
+	private function findBest($elements,$node,$grammar){
+	 	foreach ($elements as $element) {
+	 		$parent = $element;
+	 		while($parent->getNodeType()->getName() != $node->getNodeType()->getName()){
+	 				$parent = $parent->getParent();
+	 		}
+	 		if($parent == $node)
+	 			return $element;
+	 	}
+	 	return $elements->get(0);
+	 }
+
 
 	/**
 	 * Finds an Image to represent the post returns Web friendly URL
