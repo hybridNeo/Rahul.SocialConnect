@@ -4,7 +4,7 @@
     "description": "A Social media multi channel connector for TYPO3 Neos",
     "license": "GPL-3.0+",
     "require": {
-        "typo3/neos": "dev-master",
+        "typo3/neos": "*",
         "typo3/neos-nodetypes": "dev-master"
     },
     "require-dev": {
